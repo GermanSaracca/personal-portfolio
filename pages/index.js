@@ -1,8 +1,13 @@
 //Home page
 import client from '../configs/contentfulClient'
 import LoadingPage from '../components/LoadingPage'
+import { useRouter } from 'next/router'
+import LocaleSwitcher from '../components/LocaleSwitcher'
 
 const Home = ({ hero }) => {
+  const router = useRouter()
+  const { locale, locales, defaultLocale } = router
+
   console.log(hero)
 
   if (!hero) {
