@@ -1,0 +1,124 @@
+.animate {
+    position: relative;
+	z-index: 1;
+    opacity: 0;
+}
+
+.animate.slide-up.in-view {
+    animation: slide-up 750ms forwards ease-in-out;
+}
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate.slide-title.in-view {
+    animation: slide-title 450ms forwards ease-in-out;
+}
+@keyframes slide-title {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate.show-arrow.in-view {
+    animation: show-arrow 650ms forwards ease-in-out;
+    animation-delay: 500ms;
+}
+@keyframes show-arrow {
+    from {
+        opacity: 0;
+        transform: translateY(50%) scale(4);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+//ANIMACION ESPECIFICA PARA LAS CARDS DE TESTIMONIALS
+.animate.slide-up-steps.in-view {
+    opacity: 1;
+
+    .testimonial-card {
+        opacity: 0;
+        animation: slide-up-steps 700ms forwards ease-in-out;
+        animation-timing-function: cubic-bezier(0.52, 0.03, 0.57, 1.49);
+
+        //Se aplican 3 delays unicamente ya que solo se muestran hasta 3 cards 
+        //el resto de las cards del carousel que no se ven aparecen sin animacion ya que seria innecsario
+        &:nth-child(1) {
+            animation-delay: 0;
+        }
+        &:nth-child(2) {
+            animation-delay: 250ms;
+        }
+        &:nth-child(3) {
+            animation-delay: 500ms;
+        }
+    }
+}
+@keyframes slide-up-steps {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate.slide-right.in-view {
+    animation: slide-right 750ms forwards ease-in-out;
+}
+@keyframes slide-right {
+    from {
+        opacity: 0;
+        transform: translate(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+//Google Maps iframe loader
+
+@keyframes loading {
+    100% {
+      transform: translateX(100%);
+    }
+}
+
+//ANIMACION DE LOADER
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0.75rem $color-secundario);
+    }
+    50% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 7rem $color-variante-dos);
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0.75rem $color-secundario);
+    }
+}
+  
+  
+  

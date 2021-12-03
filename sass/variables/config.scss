@@ -1,0 +1,77 @@
+// ----------------------------------------------------------------------------------------------------------
+/*----- COLORES -----*/
+
+$color-claro: #ffffff;
+$color-oscuro: #1E2128;
+$color-gray:  #f4f4f4;
+$color-gray-dark:  #4d4d4d;
+$color-primario: #122256;
+$color-primario-dark: #212530;
+$color-secundario: #5EC4DF;
+$color-variante-uno: #5ecfea;
+$color-variante-dos:  #3a72b6;
+$color-variante-tres: #202D5B;
+
+$color-banner-blend-mode: #12225666;
+
+$color-negative: #f9513e;
+$color-positive: #04bf42;
+// ----------------------------------------------------------------------------------------------------------
+/*----- ESPACIADO -----*/
+
+//Unidades
+$space_half: 5px;
+$space: 10px;
+$space_x2: 20px;
+$space_x3: 30px;
+$space_x4: 40px;
+$space_x5: 50px;
+$space_x6: 60px;
+$space_x7: 70px;
+$space_x8: 80px;
+$space_x9: 90px;
+$space_x10: 100px;
+$space_x11: 110px;
+$space_x12: 120px;
+$space_x13: 130px;
+$space_x14: 140px;
+$space_x15: 150px;
+
+// ----------------------------------------------------------------------------------------------------------
+/*----- FUENTES -----*/
+$Fuente1: "Noto Sans JP", sans-serif;
+$Fuente2: 'Montserrat', sans-serif;
+
+//typos
+$h1: 48px;
+$h2: 43px;
+$h3: 22px;
+$p: 18px;
+$small: 10px;
+
+//Typo bolds
+$black: 800;
+$bolder: 700;
+$medium: 600;
+$normal: 500;
+$light: 400;
+// ----------------------------------------------------------------------------------------------------------
+
+//HEADER ---------------------------------
+$header-top-height: 119px;
+$header-top-alternative-height: 80px;
+//----------------------------------------
+
+//GRID OPTIONS
+$mobileMin: 320px;
+$mobileMax: 414px;
+$xs: 568px; //<576px
+$sm: 768px; //<768px
+$sm2: 850px;
+$md: 992px;
+$md2: 1130px;
+$lg: 1200px; //<1200px
+$desktopMax: 1366px;
+$xlg: 1500px;
+$xlg2: 1780px;
+$fullHD: 1920px;

@@ -1,5 +1,8 @@
 import Link from 'next/link'
 
+//components
+import ThemeColorPicker from '../components/ThemeColorPicker'
+import LocaleSwitcher from '../components/LocaleSwitcher'
 const Header = () => {
   return (
     <header>
@@ -17,8 +20,10 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <LocaleSwitcher />
+      <ThemeColorPicker />
     </header>
   )
 }
-
+//THANKS Howdy from coolors.co [https://fabrizio.io/, https://coolors.co/]
 export default Header

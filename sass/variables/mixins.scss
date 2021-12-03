@@ -1,0 +1,326 @@
+@use 'sass:math'; // Propiedad de sass para operaciones matemáticas
+
+@mixin image-2x($image, $size) {
+    @media (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $size;
+    }
+}
+@mixin image-3x($image, $size) {
+    @media (min--moz-device-pixel-ratio: 2.25),
+        (-webkit-min-device-pixel-ratio: 2.25),
+        (min-device-pixel-ratio: 2.25),
+        (min-resolution: 2.25dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $size;
+    }
+}
+@mixin image-2x-mixed($image, $image2, $size) {
+    @media (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image), url($image2);
+        background-size: $size;
+    }
+}
+
+@mixin image-3x-mixed($image, $image2, $size) {
+    @media (min--moz-device-pixel-ratio: 2.25),
+        (-webkit-min-device-pixel-ratio: 2.25),
+        (min-device-pixel-ratio: 2.25),
+        (min-resolution: 2.25dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image), url($image2);
+        background-size: $size;
+    }
+}
+
+@mixin padding-top-bottom($top, $bottom) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+}
+
+@function calculateRem($size) {
+    @if $size!=0 {
+        $remSize: math.div($size, 16px);
+        @return $remSize * 1rem;
+    } @else {
+        @return 0;
+    }
+}
+// Pasa font size, altura y letter space y lo pasa a rem
+@mixin font-size($size) {
+    font-size: calculateRem($size);
+    line-height: calculateRem($size) * 1.5;
+}
+
+// Opacidad
+@function get-opacity($color, $amount) {
+    @return rgba($color, $amount);
+}
+@mixin btnType1($color1, $color2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font-size(12px);
+    font-family: $Fuente1;
+    font-weight: 500;
+    padding: 0 10px;
+    width: max-content;
+    color: $color2;
+    border: 0;
+    outline: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s;
+    position: relative;
+    text-decoration: none;
+
+    @media (min-width: 1200px) {
+        @include font-size(18px);
+    }
+
+    span {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: $color1;
+        transition: all 0.3s;
+        pointer-events: none;
+    }
+    &::after {
+        content: '';
+        background-color: $color2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        border: 2px solid $color1;
+        transform: scale(1.2, 1.2);
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color1;
+        &::before {
+            opacity: 0;
+            transform: scale(0.5, 0.5);
+        }
+        &::after {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+    }
+}
+@mixin btnTypeTransparent($color1, $color2, $text_color_hover) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include font-size(12px);
+    font-family: $Fuente1;
+    font-weight: 500;
+    padding: 0 10px;
+    width: max-content;
+    color: $color1;
+    background-color: transparent;
+    outline: solid 2px $color1;
+    border: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s;
+    position: relative;
+    text-decoration: none;
+
+    @media (min-width: 1200px) {
+        @include font-size(18px);
+    }
+
+    span {
+        position: relative;
+        z-index: 2;
+        color: $color1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: transparent;
+        transition: all 0.3s;
+        pointer-events: none;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        transform: scale(1.2, 1.2);
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color1;
+        outline: 0;
+
+        &::before {
+            opacity: 0;
+            transform: scale(0.5, 0.5);
+        }
+        &::after {
+            opacity: 1;
+            transform: scale(1, 1);
+            background-color: $color1;
+        }
+        span {
+            color: $text_color_hover;
+        }
+    }
+}
+@mixin buttonSubmit($color1, $color2) {
+    @include font-size(12px);
+    font-family: $Fuente1;
+    font-weight: 500;
+    padding: 0 10px;
+    color: $color2;
+    text-transform: uppercase;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+    position: relative;
+
+    span {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: $color1;
+        transition: all 0.3s;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        border: 2px solid $color1;
+        transform: scale(1.2, 1.2);
+        background-color: $color2;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color1;
+        &::before {
+            opacity: 0;
+            transform: scale(0.5, 0.5);
+        }
+        &::after {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+    }
+}
+
+//--BOTON- Se pidio estandarizar los botones a uno diferente al que habiamos hecho, es mas simple.
+@mixin btnStandard($color, $colorBg) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    @include font-size(18px);
+    font-family: $Fuente1;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    color: $color;
+    background-color: $colorBg;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+
+    //Para dispositivos CON posibilidad de hover
+    @media (hover: hover) {
+        &:active {
+            text-decoration: none;
+            transform: scale(0.95);
+        }
+        &:hover {
+            text-decoration: none;
+            background-color: get-opacity($colorBg, 0.6);
+        }
+    }
+    //Para dispositivos SIN posibilidad de hover
+    /* 
+      [ EFECTO RIPPLE, para mostrar al usuario que se esta interactuando con el boton y no usar un 
+          estado :hover el cual se queda una vez que se apreto y no se va como en desktop ]
+      */
+    @media (hover: none) {
+        background-position: center;
+        transition: background 0.5s;
+
+        &:hover {
+            text-decoration: none;
+            background: $colorBg radial-gradient(circle, transparent 1%, $colorBg 1%) center/15000%;
+        }
+        &:active {
+            text-decoration: none;
+            background-color: get-opacity($colorBg, 0.4);
+            background-size: 100%;
+            transition: background 0s;
+        }
+    }
+}

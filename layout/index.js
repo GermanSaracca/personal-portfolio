@@ -1,13 +1,17 @@
 import Header from './header'
 import Footer from './footer'
+import { LanguageProvider } from '../context/LanguageProvider'
+import { ColorThemeProvider } from '../context/ThemeProvider'
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </>
+    <LanguageProvider>
+      <ColorThemeProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </ColorThemeProvider>
+    </LanguageProvider>
   )
 }
 

@@ -1,7 +1,9 @@
-//Create context that will be used to provide language
-const LanguageContext = React.createContext()
+import { createContext, useState } from 'react'
 
-const LanguageProvider = (props) => {
+//Create context that will be used to provide language
+export const LanguageContext = createContext()
+
+export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('es')
 
   const changeLanguage = (newLanguage) => {
@@ -10,7 +12,7 @@ const LanguageProvider = (props) => {
 
   return (
     <LanguageContext.Provider value={{ language, changeLanguage }}>
-      {props.children}
+      {children}
     </LanguageContext.Provider>
   )
 }
