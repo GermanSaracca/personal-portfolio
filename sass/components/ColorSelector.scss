@@ -1,0 +1,15 @@
+.color-selector {
+  display: flex;
+  flex-direction: column;
+
+  &__options {
+    display: flex;
+    .radio-group {
+      input {
+      }
+      label {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}

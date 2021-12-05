@@ -1,170 +1,169 @@
 .hamburger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20px;
+  height: 32px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+
+  // 1200px
+  @include media(desktop-m) {
+    width: 32px;
+  }
+
+  &:focus {
+    span {
+      background-color: var(--palette_10);
+    }
+  }
+
+  $span-3-duration: 375ms;
+  $burger-duration: 225ms;
+  $span1-2-delay: 180ms;
+
+  &.open {
+    span {
+      &:nth-child(1) {
+        animation: span-one $burger-duration ease-in-out forwards;
+        animation-delay: $span1-2-delay;
+
+        @keyframes span-one {
+          to {
+            transform: translateY(220%) rotate(45deg);
+          }
+        }
+      }
+      &:nth-child(2) {
+        animation: span-two $burger-duration ease-in-out forwards;
+        animation-delay: $span1-2-delay;
+
+        @keyframes span-two {
+          to {
+            transform: translateY(-100%) rotate(-45deg);
+          }
+        }
+      }
+      &:nth-child(3) {
+        animation: span-three $span-3-duration ease-in-out forwards;
+
+        @keyframes span-three {
+          25% {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+          }
+          70% {
+            width: 8px;
+            height: 8px;
+          }
+          to {
+            transform: translateY(300%);
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+  &.closed {
+    span {
+      &:nth-child(1) {
+        animation: span-one-c $burger-duration ease-in-out forwards;
+
+        @keyframes span-one-c {
+          from {
+            transform: translateY(240%) rotate(45deg);
+          }
+          to {
+            transform: translateY(0) rotate(0);
+          }
+        }
+      }
+      &:nth-child(2) {
+        animation: span-two-c $burger-duration ease-in-out forwards;
+
+        @keyframes span-two-c {
+          from {
+            transform: translateY(-75%) rotate(-45deg);
+          }
+          to {
+            transform: translateY(0) rotate(0);
+          }
+        }
+      }
+      &:nth-child(3) {
+        animation: span-three-c $span-3-duration ease-in-out forwards;
+
+        @keyframes span-three-c {
+          0% {
+            transform: translateY(300%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+          }
+          55% {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+          }
+          75% {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+          }
+          100% {
+            transform: translateY(0);
+            width: 20px;
+            height: 3px;
+            border-radius: 4px;
+          }
+        }
+        // 1200px
+        @include media(desktop-m) {
+          @keyframes span-three-c {
+            0% {
+              transform: translateY(300%);
+              width: 0;
+              height: 0;
+              border-radius: 50%;
+            }
+            55% {
+              width: 9px;
+              height: 9px;
+              border-radius: 50%;
+            }
+            75% {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+            }
+            100% {
+              transform: translateY(0);
+              width: 32px;
+              height: 3px;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  span {
+    display: block;
     width: 20px;
-    height: 32px;
-    background-color: transparent;
-    border: 0;
-    outline: none;
-    cursor: pointer;
+    height: 3px;
+    border-radius: 4px;
+    background-color: var(--palette_10);
+    will-change: transform width height;
 
     // 1200px
-    @include media(desktop-m){
-        width: 32px;
+    @include media(desktop-m) {
+      width: 32px;
     }
-
-    &:focus {
-        span {
-            background-color: $color-secundario;
-        }
-    }
-    
-    $span-3-duration: 375ms;
-    $burger-duration: 225ms;
-    $span1-2-delay: 180ms;
-
-    &.open {
-        span{
-            &:nth-child(1){
-                animation: span-one $burger-duration ease-in-out forwards;
-                animation-delay: $span1-2-delay;
-
-                @keyframes span-one {
-                    to {
-                        transform: translateY( 220%) rotate(45deg);
-                    }
-                }
-            }
-            &:nth-child(2){
-                animation: span-two $burger-duration ease-in-out forwards;
-                animation-delay: $span1-2-delay;
-
-                @keyframes span-two {
-                    to {
-                        transform: translateY( -100%) rotate(-45deg);
-                    }
-                }
-            }
-            &:nth-child(3){
-                animation: span-three $span-3-duration ease-in-out forwards;
-
-                @keyframes span-three {
-                    25% {
-                        width: 12px;
-                        height: 12px;
-                        border-radius: 50%;
-                    }
-                    70% {
-                        width: 8px;
-                        height: 8px;
-                    }
-                    to {
-                        transform: translateY(300%);
-                        width: 0;
-                        height: 0;
-                    }
-                }
-            }
-        }
-    }
-    &.closed {
-        span {            
-            &:nth-child(1){
-                animation: span-one-c $burger-duration ease-in-out forwards;
-
-                @keyframes span-one-c {
-                    from {
-                        transform: translateY( 240%) rotate(45deg);
-                    }
-                    to {
-                        transform: translateY(0) rotate(0);
-                    }
-                }
-            }
-            &:nth-child(2){
-                animation: span-two-c $burger-duration ease-in-out forwards;
-
-                @keyframes span-two-c {
-                    from {
-                        transform: translateY( -75%) rotate(-45deg);
-                    }
-                    to {
-                        transform: translateY(0) rotate(0);
-                    }
-                }
-            }
-            &:nth-child(3){
-                animation: span-three-c $span-3-duration ease-in-out forwards;
-
-                @keyframes span-three-c {
-                    0%{
-                        transform: translateY(300%);
-                        width: 0;
-                        height: 0;
-                        border-radius: 50%;
-                    }
-                    55% {
-                        width: 9px;
-                        height: 9px;
-                        border-radius: 50%;
-                    }
-                    75% {
-                        width: 12px;
-                        height: 12px;
-                        border-radius: 50%;
-                    }
-                    100% {
-                        transform: translateY(0);
-                        width: 20px;
-                        height: 3px;
-                        border-radius: 4px;
-                    }
-                }
-                // 1200px
-                @include media(desktop-m){
-                    @keyframes span-three-c {
-                        0%{
-                            transform: translateY(300%);
-                            width: 0;
-                            height: 0;
-                            border-radius: 50%;
-                        }
-                        55% {
-                            width: 9px;
-                            height: 9px;
-                            border-radius: 50%;
-                        }
-                        75% {
-                            width: 12px;
-                            height: 12px;
-                            border-radius: 50%;
-                        }
-                        100% {
-                            transform: translateY(0);
-                            width: 32px;
-                            height: 3px;
-                            border-radius: 4px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    span {
-        display: block;
-        width: 20px;
-        height: 3px;
-        border-radius: 4px;
-        background-color: $color-claro;
-        will-change: transform width height;
-
-        // 1200px
-        @include media(desktop-m){
-            width: 32px;
-        }
-    }
-
+  }
 }

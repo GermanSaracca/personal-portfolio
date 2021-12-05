@@ -1,22 +1,4 @@
 // ----------------------------------------------------------------------------------------------------------
-/*----- COLORES -----*/
-
-$color-claro: #ffffff;
-$color-oscuro: #1E2128;
-$color-gray:  #f4f4f4;
-$color-gray-dark:  #4d4d4d;
-$color-primario: #122256;
-$color-primario-dark: #212530;
-$color-secundario: #5EC4DF;
-$color-variante-uno: #5ecfea;
-$color-variante-dos:  #3a72b6;
-$color-variante-tres: #202D5B;
-
-$color-banner-blend-mode: #12225666;
-
-$color-negative: #f9513e;
-$color-positive: #04bf42;
-// ----------------------------------------------------------------------------------------------------------
 /*----- ESPACIADO -----*/
 
 //Unidades
@@ -39,8 +21,7 @@ $space_x15: 150px;
 
 // ----------------------------------------------------------------------------------------------------------
 /*----- FUENTES -----*/
-$Fuente1: "Noto Sans JP", sans-serif;
-$Fuente2: 'Montserrat', sans-serif;
+$Fuente1: 'Montserrat', sans-serif;
 
 //typos
 $h1: 48px;
@@ -58,8 +39,8 @@ $light: 400;
 // ----------------------------------------------------------------------------------------------------------
 
 //HEADER ---------------------------------
-$header-top-height: 119px;
-$header-top-alternative-height: 80px;
+$header-top-height: 120px;
+$header-bottom-height: 50px;
 //----------------------------------------
 
 //GRID OPTIONS

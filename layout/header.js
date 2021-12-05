@@ -1,12 +1,22 @@
+import { useState } from 'react'
 import Link from 'next/link'
-
 //components
-import ThemeColorPicker from '../components/ThemeColorPicker'
-import LocaleSwitcher from '../components/LocaleSwitcher'
+import ColorSelector from '../components/ColorSelector'
+import LanguageSelector from '../components/LanguageSelector'
+//Icons
+import { GoSettings } from 'react-icons/go'
+//Hooks
+import useWindowWidth from '../hooks/useWindowWidth'
+
 const Header = () => {
+  const windowWidth = useWindowWidth()
+
+  const [mobileSelectorOpen, setIsMobileSelectorOpen] = useState(false)
+
+  console.log(windowWidth)
+
   return (
-    <header>
-      <div className="logo"></div>
+    <header className="header">
       <nav>
         <ul>
           <li>
@@ -20,8 +30,26 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <LocaleSwitcher />
-      <ThemeColorPicker />
+
+      {windowWidth >= 992 ? (
+        <div className="desktop-selectors">
+          <ColorSelector />
+          <LanguageSelector />
+        </div>
+      ) : (
+        <div
+          className={`mobile-selectors ${mobileSelectorOpen ? 'open' : ''}`}
+          onClick={() => setIsMobileSelectorOpen(!mobileSelectorOpen)}
+        >
+          <GoSettings size="7vw" />
+          {mobileSelectorOpen && (
+            <div className="settings">
+              <ColorSelector />
+              <LanguageSelector />
+            </div>
+          )}
+        </div>
+      )}
     </header>
   )
 }

@@ -1,75 +1,65 @@
 ::selection {
-    background-color: $color-secundario;
-    color: $color-claro;
+  background-color: var(--palette_10);
+  // color: var(--palette_10);
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: $color-primario;
+  background: yellowgreen;
 }
 ::-webkit-scrollbar-thumb {
-    background: $color-secundario;
+  background: red;
 }
 
 :root {
-    --main-font-size: 16px;
+  --main-font-size: 16px;
 }
 
 @include media(tablet) {
-    :root {
-        --main-font-size: 18px;
-    }
+  :root {
+    --main-font-size: 18px;
+  }
 }
 @include media(desktop-s) {
-    :root {
-        --main-font-size: 18px;
-    }
+  :root {
+    --main-font-size: 18px;
+  }
 }
-
 @include media(desktop-m) {
-    :root {
-        --main-font-size: 14px;
-    }
+  :root {
+    --main-font-size: 14px;
+  }
 }
-
-@include media(desktop-ml) {
-    :root {
-        --main-font-size: 15px;
-    }
-}
-
 @include media(desktop-l) {
-    :root {
-        --main-font-size: 15px;
-    }
-}
-
-@include media(desktop-xl) {
-    :root {
-        --main-font-size: 16px;
-    }
+  :root {
+    --main-font-size: 16px;
+  }
 }
 @include media(desktop-xxl) {
-    :root {
-        --main-font-size: 18x;
-    }
+  :root {
+    --main-font-size: 18x;
+  }
 }
 @include media(desktop-xxxl) {
-    :root {
-        --main-font-size: 22px;
-    }
+  :root {
+    --main-font-size: 20px;
+  }
 }
 html,
 body {
-    overflow-x: hidden;
-    font-family: $Fuente1;
-    font-size: var(--main-font-size);
-    scroll-behavior: smooth;
-    //Solo para Firefox, soporta solo estas propiedas solamente para modificar la barra de scroll
-    scrollbar-color: $color-secundario $color-primario; /* thumb and track color */
+  overflow-x: hidden;
+  font-family: $Fuente1;
+  font-size: var(--main-font-size);
+  scroll-behavior: smooth;
+  color: var(--palette_10);
+  background-color: var(--palette_90);
+  //Solo para Firefox, soporta solo estas propiedas solamente para modificar la barra de scroll
+  scrollbar-color: var(--palette_50) var(--palette_90); /* thumb and track color */
+
+  transition: background-color 0.25s ease-in-out;
 }
 body {
-    overflow: hidden;
+  overflow: hidden;
 }

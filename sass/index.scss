@@ -1,6 +1,5 @@
-@import './utils/bootstrap_reboot.scss';
+@import './utils/reset.scss';
 @import './utils/breakpoints.scss';
-@import './utils/grids.scss';
 @import './variables/mixins.scss';
 @import './variables/config.scss';
 @import './utils/base.scss';
@@ -8,72 +7,33 @@
 @import './utils/animations.scss';
 
 //Componentes externos a App.js
-@import './components/Loader.scss';
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: $header-bottom-height;
 
-.incoming-tower-travel {
-    //Spinners
-    @import '../../components/Spinners/index.scss';
+  @include media(desktop-s) {
+    padding-bottom: 0;
+    padding-top: $header-top-height;
+  }
 
-    //Componentes internos a App.js
-    /* Globales */
-    @import './components/ScrollSnap.scss';
-    @import './components/Burger.scss';
-    @import './components/LanguageSelector.scss';
-    @import './components/Socials.scss';
-    @import './components/ProfesionalAccess.scss';
-    @import './components/OperatorsGallery.scss';
-    @import './components/SubscribeForm.scss';
-    @import './components/DestinationSearch.scss';
-    /* Home */
-    @import './components/Home/PackCard.scss';
-    @import './components/Home/ServiceSlider.scss';
-    /* Itinerary */
-    @import './components/Itinerary/DestinationFilter.scss';
-    @import './components/Itinerary/ItineraryCard.scss';
-    /* Contact */
-    @import './components/Contact/ContactForm.scss';
-    @import './components/Contact/Map.scss';
-    /* Tourbooks */
-    @import './components/Tourbooks/ManualCard.scss';
-    /* Mice */
-    @import './components/Mice/MiceCard.scss';
-    @import './components/MiceContact/ItineraryList.scss';
+  //Componentes internos a App.js
+  /* Globales */
+  @import './components/ScrollSnap.scss';
+  @import './components/Burger.scss';
+  @import './components/LanguageSelector.scss';
+  @import './components/ColorSelector.scss';
 
-    //------Containers------//
-    /* Home containers */
-    @import './containers/Home/PackagesDestacados.scss';
-    @import './containers/Home/Services.scss';
-    @import './containers/Home/Testimonials.scss';
-    @import './containers/Home/GoFAQs.scss';
-    /* About containers  */
-    @import './containers/About/OurEssence.scss';
-    @import './containers/About/Mission.scss';
-    @import './containers/About/WhyUs.scss';
-    /* Itinerary containers */
-    @import './containers/Itinerary/TopSearch.scss';
-    @import './containers/Itinerary/FiltersMobile.scss';
-    @import './containers/Itinerary/ItinerariesList.scss';
-    /* Contact containers */
-    @import './containers/Contact/ContactInfo.scss';
-    /* Tourbooks containers */
-    @import './containers/Tourbooks/Cards.scss';
-    /* MICE containers */
-    @import './containers/Mice/MiceCards.scss';
-    /* MICE Contact containers */
-    @import './containers//MiceContact/ListContainer.scss';
-    @import './containers/MiceContact/MiceContactForm.scss';
+  /* Home */
 
-    //Layout
-    @import './layout/Footer.scss';
-    @import './layout/Header.scss';
+  //------Containers------//
+  /* Home containers */
 
-    //Pages
-    @import './pages/Home.scss';
-    @import './pages/Faqs.scss';
-    @import './pages/About.scss';
-    @import './pages/Itinerary.scss';
-    @import './pages/Contact.scss';
-    @import './pages/Tourbooks.scss';
-    @import './pages/Mice.scss';
-    @import './pages/MiceContact.scss';
+  //Layout
+  @import './layout/Footer.scss';
+  @import './layout/Header.scss';
+
+  //Pages
+  @import './pages/Home.scss';
 }

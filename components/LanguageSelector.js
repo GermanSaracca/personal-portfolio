@@ -1,10 +1,8 @@
 import { useRouter } from 'next/router'
 
-export default function LocaleSwitcher() {
+export default function LanguageSelector() {
   const router = useRouter()
   const { locales, locale: activeLocale, pathname, query } = router
-
-  console.log({ activeLocale })
 
   const changeLocale = (e) => {
     const locale = e.target.value
@@ -12,9 +10,7 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <div>
-      <p>Locale switcher:</p>
-      <p>Lenguaje actual: {activeLocale}</p>
+    <div className="language-selector">
       <select onChange={changeLocale}>
         {locales.map((locale) => (
           <option key={locale} value={locale}>

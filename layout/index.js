@@ -7,9 +7,10 @@ const Layout = ({ children }) => {
   return (
     <LanguageProvider>
       <ColorThemeProvider>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <div className="global-wrapper">
+          <Header />
+          <main>{children}</main>
+        </div>
       </ColorThemeProvider>
     </LanguageProvider>
   )
