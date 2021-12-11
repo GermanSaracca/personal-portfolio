@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(
@@ -8,7 +8,7 @@ const useWindowWidth = () => {
   const updateWidth = () => {
     setWindowWidth(window.innerWidth)
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', updateWidth)
     }

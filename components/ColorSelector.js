@@ -8,12 +8,15 @@ const ColorSelector = () => {
 
   return (
     <div className="color-selector">
-      <div className="color-selector__title">
-        <h2>Color Theme</h2>
+      <div className="color-selector__title" id="theme-color-title">
+        <h3>Pick your preferred color pallette</h3>
       </div>
-      <div className="color-selector__options">
+      <div
+        className="color-selector__options"
+        aria-labelledby="theme-color-title"
+      >
         {colors.map((color) => (
-          <div className="radio-group" key={color}>
+          <label className="radio-label" key={color}>
             <input
               type="radio"
               id={color}
@@ -21,9 +24,8 @@ const ColorSelector = () => {
               onChange={changeTheme}
               checked={colorTheme === color}
             />
-            <label htmlFor={color}>{color}</label>
-            <span></span>
-          </div>
+            {color}
+          </label>
         ))}
       </div>
     </div>

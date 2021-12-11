@@ -1,2 +1,49 @@
 .language-selector {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--palette_20);
+  }
+
+  .buttons-group {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+
+    .btn-lang {
+      cursor: pointer;
+      transition: 100ms all;
+      width: 28px;
+      height: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-color: transparent;
+      &:first-child {
+        background-image: url('/images/bandera-ingles.svg');
+      }
+      &:last-child {
+        background-image: url('/images/bandera-espanol.svg');
+      }
+
+      &:focus {
+        outline: solid 2px var(--palette_20);
+      }
+    }
+  }
+
+  @include media(tablet) {
+    .buttons-group {
+      width: 20%;
+
+      .btn-lang {
+        width: 46px;
+        height: 28px;
+      }
+    }
+  }
 }

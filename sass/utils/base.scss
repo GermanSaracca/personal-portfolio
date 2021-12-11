@@ -57,8 +57,11 @@ body {
   background-color: var(--palette_90);
   //Solo para Firefox, soporta solo estas propiedas solamente para modificar la barra de scroll
   scrollbar-color: var(--palette_50) var(--palette_90); /* thumb and track color */
+  transition: background-color 150ms ease-in-out;
 
-  transition: background-color 0.25s ease-in-out;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 body {
   overflow: hidden;

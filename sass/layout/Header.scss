@@ -1,50 +1,77 @@
 .header {
   display: flex;
   align-items: stretch;
+  flex-wrap: wrap;
+
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: $header-bottom-height;
   background-color: var(--palette_70);
+  transition: height 100ms ease-in-out;
+
+  &.settings-open {
+    height: calc($header-bottom-height + 180px);
+
+    .mobile-selectors {
+      background-color: var(--palette_80);
+      border-left: solid 1px var(--palette_10);
+      position: relative;
+      z-index: 200;
+    }
+  }
 
   nav {
-    flex: 0.8;
+    min-width: 80%;
+    width: 80%;
+    min-height: $header-bottom-height;
+    border-bottom: solid 1px var(--palette_10);
+
     ul {
       display: flex;
       justify-content: space-around;
       align-items: center;
       height: 100%;
     }
-
-    // border: solid 1px red;
   }
   .mobile-selectors {
-    flex: 0.2;
+    min-width: 20%;
+    width: 20%;
     display: grid;
     place-items: center;
     position: relative;
-    border: solid 1px blue;
+    border-bottom: solid 1px var(--palette_10);
+  }
+  .settings-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: $space_x2;
+    height: 180px;
+    min-height: 180px;
+    min-width: 100%;
+    width: 100%;
+    background-color: var(--palette_80);
+  }
 
-    // &.open {
-    //   height: 60vw;
-    //   top: -60vw;
-    // }
-    .settings {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 4px 8px;
-      height: 80px;
-      background-color: red;
-      position: absolute;
-      top: -80px;
-      right: 0;
-      width: 100vw;
+  @include media(tablet) {
+    &.settings-open {
+      height: calc($header-bottom-height + 240px);
+    }
+    .settings-panel {
+      height: 240px;
+      padding: $space_x4;
+    }
+  }
+  @include media(desktop-s) {
+    .settings-panel {
+      padding: $space_x4 $space_x6;
     }
   }
 
-  @include media(desktop-s) {
+  @include media(desktop-m) {
     bottom: unset;
     top: 0;
   }

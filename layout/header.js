@@ -13,10 +13,8 @@ const Header = () => {
 
   const [mobileSelectorOpen, setIsMobileSelectorOpen] = useState(false)
 
-  console.log(windowWidth)
-
   return (
-    <header className="header">
+    <header className={`header ${mobileSelectorOpen ? 'settings-open' : ''}`}>
       <nav>
         <ul>
           <li>
@@ -31,24 +29,26 @@ const Header = () => {
         </ul>
       </nav>
 
-      {windowWidth >= 992 ? (
+      {windowWidth >= 1200 ? (
         <div className="desktop-selectors">
           <ColorSelector />
           <LanguageSelector />
         </div>
       ) : (
-        <div
-          className={`mobile-selectors ${mobileSelectorOpen ? 'open' : ''}`}
-          onClick={() => setIsMobileSelectorOpen(!mobileSelectorOpen)}
-        >
-          <GoSettings size="7vw" />
+        <>
+          <div
+            className="mobile-selectors"
+            onClick={() => setIsMobileSelectorOpen(!mobileSelectorOpen)}
+          >
+            <GoSettings size="25px" />
+          </div>
           {mobileSelectorOpen && (
-            <div className="settings">
+            <div className="settings-panel">
               <ColorSelector />
               <LanguageSelector />
             </div>
           )}
-        </div>
+        </>
       )}
     </header>
   )

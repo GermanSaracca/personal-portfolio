@@ -5,7 +5,7 @@ export const ColorThemeContext = createContext({})
 export const ColorThemeProvider = ({ children }) => {
   const [colorTheme, setColorTheme] = useState('dark')
 
-  const colors = ['skyblue', 'light', 'dark', 'black_yellow']
+  const colors = ['skyblue', 'light', 'dark', 'contrast']
 
   const palettes = {
     skyblue: [
@@ -44,7 +44,7 @@ export const ColorThemeProvider = ({ children }) => {
       { name: 'palette_20', value: '#e3e3e3' },
       { name: 'palette_10', value: '#ffffff' },
     ],
-    black_yellow: [
+    contrast: [
       { name: 'palette_100', value: '#000000' },
       { name: 'palette_90', value: '#1c1c1c' },
       { name: 'palette_80', value: '#2b2b2b' },
