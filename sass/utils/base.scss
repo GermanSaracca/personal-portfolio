@@ -1,16 +1,15 @@
 ::selection {
-  background-color: var(--palette_10);
-  // color: var(--palette_10);
+  background-color: var(--color-secondary);
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: yellowgreen;
+  background: var(--color-secondary);
 }
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background: var(--color-tertiary);
 }
 
 :root {
@@ -53,10 +52,10 @@ body {
   font-family: $Fuente1;
   font-size: var(--main-font-size);
   scroll-behavior: smooth;
-  color: var(--palette_10);
-  background-color: var(--palette_90);
+  color: var(--color-text);
+  background-color: var(--color-background);
   //Solo para Firefox, soporta solo estas propiedas solamente para modificar la barra de scroll
-  scrollbar-color: var(--palette_50) var(--palette_90); /* thumb and track color */
+  scrollbar-color: var(--color-tertiary) var(--color-secondary); /* thumb and track color */
   transition: background-color 150ms ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {

@@ -46,4 +46,7 @@
       }
     }
   }
+  @include media(desktop-m) {
+    width: 50%;
+  }
 }

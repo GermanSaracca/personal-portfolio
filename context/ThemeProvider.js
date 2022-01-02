@@ -5,56 +5,24 @@ export const ColorThemeContext = createContext({})
 export const ColorThemeProvider = ({ children }) => {
   const [colorTheme, setColorTheme] = useState('dark')
 
-  const colors = ['skyblue', 'light', 'dark', 'contrast']
+  const colors = ['light', 'dark']
 
   const palettes = {
-    skyblue: [
-      { name: 'palette_100', value: '#012a4a' },
-      { name: 'palette_90', value: '#013a63' },
-      { name: 'palette_80', value: '#01497c' },
-      { name: 'palette_70', value: '#014f86' },
-      { name: 'palette_60', value: '#2a6f97' },
-      { name: 'palette_50', value: '#2c7da0' },
-      { name: 'palette_40', value: '#468faf' },
-      { name: 'palette_30', value: '#61a5c2' },
-      { name: 'palette_20', value: '#89c2d9' },
-      { name: 'palette_10', value: '#d9f1f9' },
-    ],
     light: [
-      { name: 'palette_100', value: '#ffffff' },
-      { name: 'palette_90', value: '#e3e3e3' },
-      { name: 'palette_80', value: '#c6c6c6' },
-      { name: 'palette_70', value: '#aaaaaa' },
-      { name: 'palette_60', value: '#8e8e8e' },
-      { name: 'palette_50', value: '#717171' },
-      { name: 'palette_40', value: '#555555' },
-      { name: 'palette_30', value: '#393939' },
-      { name: 'palette_20', value: '#1c1c1c' },
-      { name: 'palette_10', value: '#000000' },
+      { name: 'color-background', value: '#fffffe' },
+      { name: 'color-secondary', value: '#6246ea' },
+      { name: 'color-tertiary', value: '#e45858' },
+      { name: 'color-headline', value: '#2b2c34' },
+      { name: 'color-text', value: '#2b2c34' },
+      { name: 'color-stroke', value: '#2b2c34' },
     ],
     dark: [
-      { name: 'palette_100', value: '#000000' },
-      { name: 'palette_90', value: '#1c1c1c' },
-      { name: 'palette_80', value: '#393939' },
-      { name: 'palette_70', value: '#555555' },
-      { name: 'palette_60', value: '#717171' },
-      { name: 'palette_50', value: '#8e8e8e' },
-      { name: 'palette_40', value: '#aaaaaa' },
-      { name: 'palette_30', value: '#c6c6c6' },
-      { name: 'palette_20', value: '#e3e3e3' },
-      { name: 'palette_10', value: '#ffffff' },
-    ],
-    contrast: [
-      { name: 'palette_100', value: '#000000' },
-      { name: 'palette_90', value: '#1c1c1c' },
-      { name: 'palette_80', value: '#2b2b2b' },
-      { name: 'palette_70', value: '#3f3f3f' },
-      { name: 'palette_60', value: '#4f4f4f' },
-      { name: 'palette_50', value: '#656500' },
-      { name: 'palette_40', value: '#888800' },
-      { name: 'palette_30', value: '#c2c200' },
-      { name: 'palette_20', value: '#e1e100' },
-      { name: 'palette_10', value: '#ffff00' },
+      { name: 'color-background', value: '#16161a' },
+      { name: 'color-secondary', value: '#7f5af0' },
+      { name: 'color-tertiary', value: '#2cb67d' },
+      { name: 'color-headline', value: '#fffffe' },
+      { name: 'color-text', value: '#94a1b2' },
+      { name: 'color-stroke', value: '#010101' },
     ],
   }
   //Set the color theme based on the user preference
@@ -62,11 +30,26 @@ export const ColorThemeProvider = ({ children }) => {
     setColorTheme(
       window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
-        : window.matchMedia('(prefers-color-scheme: light)').matches
-        ? 'light'
-        : 'skyblue'
+        : 'light'
     )
   }, [])
+
+  // Client-side-only code
+  let darkMode =
+    typeof window !== 'undefined'
+      ? window.matchMedia('(prefers-color-scheme: dark)')
+      : null
+
+  useEffect(() => {
+    darkMode.onchange = () => {
+      setColorTheme(
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+      )
+    }
+  }, [])
+
   //Set new root custom properties for the color theme
   useEffect(() => {
     const root = document.documentElement
@@ -75,10 +58,11 @@ export const ColorThemeProvider = ({ children }) => {
       root.style.setProperty(`--${name}`, value)
     })
   }, [colorTheme])
-  //TODO Add transition to element that changes color theme
 
   return (
-    <ColorThemeContext.Provider value={{ colorTheme, setColorTheme, colors }}>
+    <ColorThemeContext.Provider
+      value={{ colorTheme, setColorTheme, colors, palettes }}
+    >
       {children}
     </ColorThemeContext.Provider>
   )

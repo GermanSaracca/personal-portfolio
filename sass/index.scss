@@ -11,12 +11,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-bottom: $header-bottom-height;
-
-  @include media(desktop-m) {
-    padding-bottom: 0;
-    padding-top: $header-top-height;
-  }
 
   //Componentes internos a App.js
   /* Globales */

@@ -1,6 +1,11 @@
 /* Esta es la clase que se aplica a cada contenedor de cada pagina ( /pages )  */
 .page-container {
   flex: 1 0 auto;
+  margin-top: $header-height-mobile;
+
+  @include media(desktop-m) {
+    margin-top: $header-height-desktop;
+  }
 }
 
 //*****************************//
