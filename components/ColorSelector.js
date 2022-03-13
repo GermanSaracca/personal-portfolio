@@ -1,35 +1,19 @@
 import { useContext } from 'react'
 import { ColorThemeContext } from '../context/ThemeProvider'
+import { MdBrightnessLow, MdBrightnessHigh } from 'react-icons/md'
 
 const ColorSelector = () => {
-  const { colorTheme, setColorTheme, colors } = useContext(ColorThemeContext)
+    const { colorTheme, setColorTheme } = useContext(ColorThemeContext)
 
-  const changeTheme = (e) => setColorTheme(e.target.id)
+    const changeTheme = () => {
+        setColorTheme(colorTheme === 'light' ? 'dark' : 'light')
+    }
 
-  return (
-    <div className="color-selector">
-      <div className="color-selector__title" id="theme-color-title">
-        <h3>Pick your preferred color pallette</h3>
-      </div>
-      <div
-        className="color-selector__options"
-        aria-labelledby="theme-color-title"
-      >
-        {colors.map((color) => (
-          <label className="radio-label" key={color}>
-            <input
-              type="radio"
-              id={color}
-              name="theme-picker"
-              onChange={changeTheme}
-              checked={colorTheme === color}
-            />
-            {color}
-          </label>
-        ))}
-      </div>
-    </div>
-  )
+    return (
+        <button className="grid place-items-center" onClick={changeTheme}>
+            {colorTheme === 'light' ? <MdBrightnessLow size="1.5rem" /> : <MdBrightnessHigh size="1.5rem" />}
+        </button>
+    )
 }
 
 export default ColorSelector

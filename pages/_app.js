@@ -1,17 +1,15 @@
-//LAYOUT
-import Layout from '../layout'
-
+import Layout from '../components/layout'
 import { ColorThemeProvider } from '../context/ThemeProvider'
-import '../sass/index.scss'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <ColorThemeProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ColorThemeProvider>
-  )
+    return (
+        <ColorThemeProvider>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </ColorThemeProvider>
+    )
 }
 
 export default MyApp

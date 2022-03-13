@@ -1,11 +1,11 @@
 //Project page
 
 const Projects = () => {
-  return (
-    <div className="projects page-container">
-      <h1>Projects page</h1>
-    </div>
-  )
+    return (
+        <div className="bg-red-400 ">
+            <h1>Projects page</h1>
+        </div>
+    )
 }
 
 export default Projects
