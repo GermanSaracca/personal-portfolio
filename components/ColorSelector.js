@@ -10,8 +10,12 @@ const ColorSelector = () => {
     }
 
     return (
-        <button className="grid place-items-center" onClick={changeTheme}>
-            {colorTheme === 'light' ? <MdBrightnessLow size="1.5rem" /> : <MdBrightnessHigh size="1.5rem" />}
+        <button
+            className="grid text-2xl transition duration-200 ease-in-out xl:text-3xl place-items-center dark:hover:text-sky-400 hover:text-sky-600"
+            onClick={changeTheme}
+        >
+            {colorTheme === 'light' ? <MdBrightnessLow size="1em" /> : <MdBrightnessHigh size="1em" />}
+            <span className="sr-only">Cambiar paleta de colores</span>
         </button>
     )
 }
