@@ -13,7 +13,7 @@ export default function LanguageSelector() {
 
     return (
         <button
-            className="flex items-center gap-1 text-2xl transition duration-200 ease-in-out dark:hover:text-sky-400 hover:text-sky-600 xl:text-3xl"
+            className="flex items-center gap-1 text-2xl transition duration-200 ease-in-out dark:hover:text-sky-300 hover:text-sky-600 xl:text-3xl"
             aria-label={`${activeLocale === 'en' ? 'Change to spanish' : 'Change to english'}`}
             onClick={changeLocale}
         >

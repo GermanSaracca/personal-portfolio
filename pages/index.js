@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import useScrollToTop from '../hooks/useScrollTop'
 
 const Home = ({ hero }) => {
+    console.log(hero)
     // useScrollToTop()
 
     const router = useRouter()

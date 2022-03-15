@@ -9,7 +9,9 @@ const HeaderLink = ({ href, text }) => {
             <NavLink
                 href={href}
                 exact
-                className="xl:text-xl 2xl:text-2xl dark:lg:hover:text-sky-300 lg:hover:text-sky-600 lg:transition lg:duration-200"
+                className={`xl:text-xl 2xl:text-2xl dark:lg:hover:text-sky-300 lg:hover:text-sky-600 lg:transition lg:duration-200 ${
+                    pathname === href ? 'dark:lg:text-sky-300 lg:text-sky-600' : ''
+                }`}
             >
                 {text}
             </NavLink>
