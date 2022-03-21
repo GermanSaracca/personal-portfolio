@@ -1,0 +1,34 @@
+/* Importamos la base de TAILWIND */
+@tailwind base;
+
+/* APLICO ALGUNAS MODIFICACIONES A LA BASE */
+@layer base {
+    button:focus-visible,
+    a:focus-visible {
+        @apply dark:focus-visible:outline-sky-400 focus-visible:outline-sky-600 focus-visible:outline-offset-4;
+    }
+    h1 {
+        @apply text-4xl xl:text-5xl 2xl:text-6xl;
+    }
+    h2 {
+        @apply text-2xl xl:text-3xl 2xl:text-4xl;
+    }
+    p {
+        @apply lg:text-lg 2xl:text-xl;
+    }
+    ::selection {
+        @apply bg-sky-500 text-gray-900;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-sky-400;
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-sky-800;
+    }
+    body {
+        scrollbar-color: rgb(7 89 133) rgb(56 189 248);
+    }
+}

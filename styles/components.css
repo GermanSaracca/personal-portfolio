@@ -1,0 +1,12 @@
+/* Importamos los estilos de los components de TAILWIND */
+@tailwind components;
+
+/* APLICO CLASES NUEVAS PARA COMPONENTES */
+@layer components {
+    .btn {
+        @apply inline-block my-2 relative px-4 py-2 border-2 bg-gray-300 dark:bg-gray-800 border-gray-800 
+        dark:border-sky-400 after:w-full after:h-full after:absolute after:left-1 after:top-1 after:bg-gray-200 
+        after:dark:border-sky-400 after:dark:bg-gray-800 after:-z-10 text-gray-800 dark:text-gray-200 uppercase font-semibold after:border-gray-800 
+        after:border-2 hover:after:left-2 hover:after:top-2 after:transition-all after:ease-linear focus-visible:outline-offset-8 !important;
+    }
+}

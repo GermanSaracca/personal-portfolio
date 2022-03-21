@@ -6,10 +6,9 @@ import { motion } from 'framer-motion'
 import { variantPage } from '../configs/pageAnimationsVariants'
 //Hooks
 import useScrollToTop from '../hooks/useScrollTop'
+import Wave from '../components/Wave'
 
 const Home = ({ hero }) => {
-    console.log(hero)
-
     const router = useRouter()
     const { locale, locales, defaultLocale } = router
 
@@ -18,9 +17,19 @@ const Home = ({ hero }) => {
     }
 
     const { fields } = hero[0]
+    // const variantPage = {
+    //     hidden: { opacity: 0, x: -200, y: 0, transition: { duration: 0.5 } },
+    //     enter: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5 } },
+    //     exit: { opacity: 0, x: 0, y: -100, transition: { duration: 0.5 } },
+    // }
+
+    const titleVariants = {
+        hidden: { borderBottom: '0' },
+        enter: { borderBottom: '100%', borderColor: 'red' },
+    }
 
     return (
-        <motion.div
+        <motion.section
             variants={variantPage}
             initial="hidden"
             animate="enter"
@@ -28,15 +37,15 @@ const Home = ({ hero }) => {
             transition={{ type: 'linear' }}
             className=""
         >
-            <div className="container">
-                <h1>{fields.title}</h1>
-                <h2>{fields.subtitle}</h2>
-                <p>{fields.description}</p>
-                <a href={fields.curriculumPdf.fields.file.url} target="_blank" rel="noreferrer">
-                    Download pdf
-                </a>
-            </div>
-        </motion.div>
+            <h1 variants={titleVariants} className="mb-4 font-bold">
+                {fields.title}
+            </h1>
+            <h2 className="font-semibold text-sky-600 dark:text-sky-400">{fields.subtitle}</h2>
+            <p>{fields.description}</p>
+            <a className="btn" href={fields.curriculumPdf.fields.file.url} target="_blank" rel="noreferrer">
+                Download pdf
+            </a>
+        </motion.section>
     )
 }
 
