@@ -6,7 +6,9 @@ import { motion } from 'framer-motion'
 import { variantPage } from '../configs/pageAnimationsVariants'
 //Hooks
 import useScrollToTop from '../hooks/useScrollTop'
-import Wave from '../components/Wave'
+//Components
+import ContactForm from '../components/ContactForm'
+import { HiOutlineMail } from 'react-icons/hi'
 
 const Home = ({ hero }) => {
     const router = useRouter()
@@ -17,11 +19,6 @@ const Home = ({ hero }) => {
     }
 
     const { fields } = hero[0]
-    // const variantPage = {
-    //     hidden: { opacity: 0, x: -200, y: 0, transition: { duration: 0.5 } },
-    //     enter: { opacity: 1, x: 0, y: 0, transition: { duration: 0.5 } },
-    //     exit: { opacity: 0, x: 0, y: -100, transition: { duration: 0.5 } },
-    // }
 
     const titleVariants = {
         hidden: { borderBottom: '0' },
@@ -37,14 +34,19 @@ const Home = ({ hero }) => {
             transition={{ type: 'linear' }}
             className=""
         >
-            <h1 variants={titleVariants} className="mb-4 font-bold">
-                {fields.title}
-            </h1>
-            <h2 className="font-semibold text-sky-600 dark:text-sky-400">{fields.subtitle}</h2>
-            <p>{fields.description}</p>
+            <h1 className="mb-6 font-semibold ">{fields.title}</h1>
+            <h2 className="mb-8 font-semibold text-sky-600 dark:text-sky-400">{fields.subtitle}</h2>
+            <p className="mb-8 lg:max-w-3xl">{fields.description}</p>
             <a className="btn" href={fields.curriculumPdf.fields.file.url} target="_blank" rel="noreferrer">
                 Download pdf
             </a>
+            <section className="w-full py-4 mt-8 sm:max-w-sm ">
+                <h3 className="flex items-center mb-4 ">
+                    Enviame un mensaje <HiOutlineMail className="ml-2 text-sky-600 dark:text-sky-400" size={'1.10em'} />
+                </h3>
+
+                <ContactForm />
+            </section>
         </motion.section>
     )
 }

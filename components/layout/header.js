@@ -21,7 +21,7 @@ const Header = () => {
         <header className="fixed z-10 flex items-center w-full px-4 text-gray-800 bg-gray-300 shadow-lg dark:shadow-md sm:px-12 h-14 dark:bg-gray-900 dark:text-gray-200 xl:static xl:flex-col xl:h-screen xl:p-0 dark:shadow-black shadow-gray-500">
             <nav className="h-full basis-2/3 sm:basis-4/5 xl:basis-0 xl:h-fit xl:w-full">
                 <ul className="flex items-center h-full gap-4 sm:gap-8 xl:flex-col xl:gap-0">
-                    <HeaderLink href="/" text="About me" />
+                    <HeaderLink href="/" text="About" />
                     <HeaderLink href="/projects" text="Proyectos" />
                     <HeaderLink href="/skills" text="Skills" />
                 </ul>
