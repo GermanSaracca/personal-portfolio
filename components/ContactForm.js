@@ -1,7 +1,13 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useContext } from 'react'
+import { ColorThemeContext } from '../context/ThemeProvider'
 import emailjs from '@emailjs/browser'
+import ReCAPTCHA from 'react-google-recaptcha'
+
 const ContactForm = () => {
+    const { colorTheme } = useContext(ColorThemeContext)
+
     const form = useRef()
+    const [allowSend, setAllowSend] = useState(false)
     const [messageSent, setMessageSent] = useState(false)
     const [messageError, setMessageError] = useState(false)
 
@@ -25,6 +31,15 @@ const ContactForm = () => {
                     setMessageError(true)
                 }
             )
+    }
+
+    const onChangeReCAPTCHA = (value) => {
+        console.log(value)
+        if (value) {
+            setAllowSend(true)
+        } else {
+            setAllowSend(false)
+        }
     }
 
     // TODO: Add a message to the user if the message was sent successfully
@@ -70,10 +85,18 @@ const ContactForm = () => {
                     minLength={10}
                 />
             </div>
-
-            <button className="btn" type="submit">
-                Enviar mensaje
-            </button>
+            {!allowSend ? (
+                <ReCAPTCHA
+                    size="normal"
+                    theme={colorTheme === 'light' ? 'light' : 'dark'}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    onChange={onChangeReCAPTCHA}
+                />
+            ) : (
+                <button className="btn" type="submit">
+                    Enviar mensaje
+                </button>
+            )}
         </form>
     )
 }
