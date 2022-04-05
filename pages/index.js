@@ -11,6 +11,7 @@ import ContactForm from '../components/ContactForm'
 import { HiOutlineMail } from 'react-icons/hi'
 
 const Home = ({ hero }) => {
+    console.log(hero)
     const router = useRouter()
     const { locale, locales, defaultLocale } = router
 

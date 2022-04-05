@@ -88,7 +88,6 @@ const ContactForm = () => {
             {!allowSend ? (
                 <ReCAPTCHA
                     size="normal"
-                    theme={colorTheme === 'light' ? 'light' : 'dark'}
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                     onChange={onChangeReCAPTCHA}
                 />
