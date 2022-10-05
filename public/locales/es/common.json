@@ -1,0 +1,11 @@
+{
+    "hero": {
+        "greeting_prepend": "Hola! Mi nombre es",
+        "download_pdf": "Descargar pdf"
+    },
+    "work": {
+        "title": "Trabajos",
+        "go_repo": "Ir al repo",
+        "go_website": "Ir al sitio web"
+    }
+}

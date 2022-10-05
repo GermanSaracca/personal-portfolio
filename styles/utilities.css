@@ -1,6 +1,9 @@
 @tailwind utilities;
 
 @layer utilities {
+    .section-padding {
+        @apply px-8 sm:px-20 lg:px-32 2xl:px-40;
+    }
     /* Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
         display: none;
