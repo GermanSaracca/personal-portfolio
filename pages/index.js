@@ -57,7 +57,7 @@ export async function getStaticProps(context) {
         props: {
             hero: hero.items,
             works: projects.items,
-            ...(await serverSideTranslations(locale, ['common'])),
+            ...(await serverSideTranslations(locale, ['common'], null, ['es', 'en'])),
         },
         revalidate: 10,
     }
