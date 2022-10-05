@@ -9,9 +9,8 @@ const WorkCard = ({ work }) => {
 
     const { t } = useTranslation('common')
 
-    // console.log(work)
     return (
-        <div className="isolate">
+        <div className="isolate h-full">
             <div
                 className="relative border-[3px] bg-gray-300 dark:bg-gray-900 border-gray-800 text-gray-800 dark:text-gray-200 dark:border-sky-400 h-full
                 after:w-full after:h-full after:absolute after:left-3 after:top-3 after:bg-gray-300 after:dark:border-sky-400 after:dark:bg-gray-900 after:-z-10  after:border-gray-800 after:border-[3px] hover:after:left-4 hover:after:top-4 after:transition-all after:ease-linear !important"
@@ -26,7 +25,11 @@ const WorkCard = ({ work }) => {
                     <p className="text-lg mb-4 break-words min-h-[90px]">{description}</p>
 
                     {/* THUMBNAIL */}
-                    <div className="relative mb-8 rounded-lg overflow-hidden">
+                    <div
+                        className={`relative outline-gray-800 dark:outline-sky-400 outline-double outline-4 outline-offset-3 ${
+                            !repoUrl && !webUrl ? 'mb-8' : 'mb-4'
+                        }`}
+                    >
                         <Image
                             src={`https:${thumbnail.fields.file.url}`}
                             alt={thumbnail.fields.title}
@@ -39,32 +42,34 @@ const WorkCard = ({ work }) => {
                         />
                     </div>
                     {/* LINKS CODE - WEB */}
-                    <div className="flex items-center gap-5">
-                        {/* REPO */}
-                        {repoUrl && (
-                            <Tooltip tooltipText={t('work.go_website')} orientation="right">
-                                <div className="text-gray-800 dark:text-sky-400">
-                                    <a href={repoUrl} target="_blank" rel="noreferrer" title={t('work.go_repo')}>
-                                        <BsGithub size={30} />
-                                    </a>
-                                </div>
-                            </Tooltip>
-                        )}
+                    {(repoUrl || webUrl) && (
+                        <div className="flex items-center gap-5 self-end">
+                            {/* REPO */}
+                            {repoUrl && (
+                                <Tooltip tooltipText={t('work.go_repo')} orientation="top">
+                                    <div className="text-gray-800 dark:text-sky-400">
+                                        <a href={repoUrl} target="_blank" rel="noreferrer">
+                                            <BsGithub size={20} />
+                                        </a>
+                                    </div>
+                                </Tooltip>
+                            )}
 
-                        {/* WEBSITE */}
-                        {webUrl && (
-                            <Tooltip tooltipText={t('work.go_website')} orientation="left">
-                                <div className="text-gray-800 dark:text-sky-400">
-                                    <a href={webUrl} target="_blank" rel="noreferrer">
-                                        <HiOutlineExternalLink size={30} />
-                                    </a>
-                                </div>
-                            </Tooltip>
-                        )}
-                    </div>
+                            {/* WEBSITE */}
+                            {webUrl && (
+                                <Tooltip tooltipText={t('work.go_website')} orientation="top">
+                                    <div className="text-gray-800 dark:text-sky-400">
+                                        <a href={webUrl} target="_blank" rel="noreferrer">
+                                            <HiOutlineExternalLink size={23} />
+                                        </a>
+                                    </div>
+                                </Tooltip>
+                            )}
+                        </div>
+                    )}
 
                     {/* STACK */}
-                    <div className="flex items-center gap-5 self-end mt-auto">
+                    <div className="flex items-center gap-5 mt-auto">
                         {stackIcons.map((icon) => {
                             return (
                                 <div className="" key={icon.fields.title}>

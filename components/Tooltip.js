@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import propTypes from 'prop-types'
-import { m } from 'framer-motion'
 
 const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
     const tipRef = useRef(null)
@@ -13,77 +12,73 @@ const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
     }
 
     function handleMouseEnter() {
-        tipRef.current.style.contentVisibility = 'visible'
         tipRef.current.style.opacity = 1
     }
 
     function handleMouseLeave() {
         tipRef.current.style.opacity = 0
-        tipRef.current.style.contentVisibility = 'hidden'
     }
 
-    const xyAxis = (orientation) => {
-        let xyAxisClassNames
+    const setContainerPosition = (orientation) => {
+        let classnames
 
         switch (orientation) {
             case orientations.right:
-                xyAxisClassNames = 'top-0 left-full ml-4'
+                classnames = 'top-0 left-full ml-4'
                 break
             case orientations.left:
-                xyAxisClassNames = 'top-0 right-full mr-4'
+                classnames = 'top-0 right-full mr-4'
                 break
             case orientations.top:
-                xyAxisClassNames = 'bottom-full left-[50%] translate-x-[-50%] -translate-y-2'
+                classnames = 'bottom-full left-[50%] translate-x-[-50%] -translate-y-2'
                 break
             case orientations.bottom:
-                xyAxisClassNames = 'top-full left-[50%] translate-x-[-50%] translate-y-2'
+                classnames = 'top-full left-[50%] translate-x-[-50%] translate-y-2'
                 break
 
             default:
                 break
         }
 
-        return xyAxisClassNames
+        return classnames
     }
 
-    const pointerPosition = (orientation) => {
-        let pointerClassnames
+    const setPointerPosition = (orientation) => {
+        let classnames
 
         switch (orientation) {
             case orientations.right:
-                pointerClassnames = 'left-[-6px]'
+                classnames = 'left-[-6px]'
                 break
             case orientations.left:
-                pointerClassnames = 'right-[-6px]'
+                classnames = 'right-[-6px]'
                 break
             case orientations.top:
-                pointerClassnames = 'top-full left-[50%] translate-x-[-50%] -translate-y-2'
+                classnames = 'top-full left-[50%] translate-x-[-50%] -translate-y-2'
                 break
             case orientations.bottom:
-                pointerClassnames = 'bottom-full left-[50%] translate-x-[-50%] translate-y-2'
+                classnames = 'bottom-full left-[50%] translate-x-[-50%] translate-y-2'
                 break
 
             default:
                 break
         }
 
-        return pointerClassnames
+        return classnames
     }
 
-    const classContainer = `w-max absolute ${xyAxis(
+    const classContainer = `w-max absolute z-10 ${setContainerPosition(
         orientation
-    )} bg-gray-400 text-white text-sm px-2 py-1 rounded flex items-center transition-all duration-150`
+    )} bg-gray-600 text-white text-xs px-2 py-1 rounded flex items-center transition-all duration-150 pointer-events-none`
 
-    const classPointer = `bg-gray-400 h-3 w-3 absolute ${pointerPosition(orientation)} rotate-45 -z-10 `
+    const pointerClasses = `bg-gray-600 h-3 w-3 absolute z-10 ${setPointerPosition(
+        orientation
+    )} rotate-45 pointer-events-none`
 
     return (
-        <div
-            className="relative flex items-center border-2 border-red-400"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            <div className={classContainer} style={{ opacity: 0, contentVisibility: 'hidden' }} ref={tipRef}>
-                <div className={classPointer} />
+        <div className="relative flex items-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className={classContainer} style={{ opacity: 0 }} ref={tipRef}>
+                <div className={pointerClasses} />
                 {tooltipText}
             </div>
             {children}

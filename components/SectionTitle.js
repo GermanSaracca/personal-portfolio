@@ -63,7 +63,7 @@ const SectionTitle = ({ word }) => {
                     return (
                         <motion.span
                             variants={animation}
-                            className={`text-5xl lg:text-8xl 2xl:text-9xl font-semibold uppercase mr-2 ${
+                            className={`text-5xl lg:text-7xl 2xl:text-8xl font-semibold uppercase mr-2 ${
                                 isLastLetter && 'mr-0'
                             }`}
                             key={i}
