@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import { ColorThemeProvider } from '../context/ThemeProvider'
-import { AnimatePresence } from 'framer-motion'
+import { appWithTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
 import '../styles/globals.css'
@@ -11,12 +11,10 @@ function MyApp({ Component, pageProps }) {
     return (
         <ColorThemeProvider>
             <Layout>
-                <AnimatePresence exitBeforeEnter={true}>
-                    <Component {...pageProps} key={router.pathname} />
-                </AnimatePresence>
+                <Component {...pageProps} key={router.pathname} />
             </Layout>
         </ColorThemeProvider>
     )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)
