@@ -6,10 +6,4 @@ module.exports = {
     images: {
         domains: ['images.ctfassets.net'],
     },
-    fallbackLng: {
-        default: ['en'],
-        'es-AR': ['es'],
-        'es-ES': ['es'],
-        'es-MX': ['es'],
-    },
 }
