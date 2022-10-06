@@ -34,7 +34,7 @@ const Work = ({ work }) => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 lg:gap-16 2xl:grid-cols-3 2xl:gap-10"
+                className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3 xl:gap-10"
             >
                 {work.map((w) => (
                     <motion.div variants={listCardVariants} className="h-full" key={w.slug}>
