@@ -7,5 +7,9 @@
         "title": "Work",
         "go_repo": "Go to repo",
         "go_website": "Go to website"
+    },
+    "header": {
+        "switch_to_dark_mode": "Swith to dark mode",
+        "switch_to_light_mode": "Switch to light mode"
     }
 }

@@ -21,7 +21,11 @@ const Header = () => {
                     width: `${progressBarWidth}%`,
                 }}
             ></motion.div>
-            <ul className="flex items-center gap-4 p-4">
+            <ul
+                className={`flex items-center gap-4 p-4 transition-all duration-300 ${
+                    progressBarWidth >= 20 ? 'py-1' : 'py-4'
+                }`}
+            >
                 <li>
                     <ColorSelector />
                 </li>

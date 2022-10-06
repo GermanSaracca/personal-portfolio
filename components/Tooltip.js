@@ -71,7 +71,7 @@ const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
         orientation
     )} bg-gray-600 text-white text-xs px-2 py-1 rounded flex items-center transition-all duration-150 pointer-events-none`
 
-    const pointerClasses = `bg-gray-600 h-3 w-3 absolute z-10 ${setPointerPosition(
+    const pointerClasses = `bg-gray-600 h-3 w-3 absolute -z-10 ${setPointerPosition(
         orientation
     )} rotate-45 pointer-events-none`
 

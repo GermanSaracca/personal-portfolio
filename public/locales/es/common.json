@@ -7,5 +7,9 @@
         "title": "Trabajos",
         "go_repo": "Ir al repo",
         "go_website": "Ir al sitio web"
+    },
+    "header": {
+        "switch_to_dark_mode": "Cambiar a modo oscuro",
+        "switch_to_light_mode": "Cambiar a modo claro"
     }
 }

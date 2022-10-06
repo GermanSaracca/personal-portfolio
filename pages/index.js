@@ -40,7 +40,6 @@ const Home = ({ hero, works }) => {
 export async function getStaticProps(context) {
     const { locale } = context
 
-    console.log(locale)
     const contentLocale = locale === 'es' ? 'es-AR' : 'en-US'
 
     // TRAER LOS DATOS DE LA API DE CONTENTFUL

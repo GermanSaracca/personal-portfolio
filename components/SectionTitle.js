@@ -54,6 +54,7 @@ const SectionTitle = ({ word }) => {
             variants={list}
             viewport={{ once: true, amount: 'all' }}
             key={word}
+            aria-label={word}
         >
             {wordsWithAnimation &&
                 wordsWithAnimation.length &&

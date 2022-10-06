@@ -1,9 +1,12 @@
 import { useContext } from 'react'
+import { useTranslation } from 'next-i18next'
 import { ColorThemeContext } from '../context/ThemeProvider'
 import { MdBrightnessLow, MdBrightnessHigh } from 'react-icons/md'
 
 const ColorSelector = () => {
     const { colorTheme, setColorTheme } = useContext(ColorThemeContext)
+
+    const { t } = useTranslation('common')
 
     const changeTheme = () => {
         setColorTheme(colorTheme === 'light' ? 'dark' : 'light')
@@ -15,7 +18,9 @@ const ColorSelector = () => {
             onClick={changeTheme}
         >
             {colorTheme === 'light' ? <MdBrightnessLow size="1em" /> : <MdBrightnessHigh size="1em" />}
-            <span className="sr-only">Cambiar paleta de colores</span>
+            <span className="sr-only">
+                {colorTheme === 'light' ? t('header.switch_to_dark_mode') : t('header.switch_to_light_mode')}
+            </span>
         </button>
     )
 }

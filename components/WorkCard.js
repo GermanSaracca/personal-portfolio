@@ -1,11 +1,11 @@
 import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import { BsGithub } from 'react-icons/bs'
-import { HiOutlineExternalLink } from 'react-icons/hi'
+import { IoLinkOutline } from 'react-icons/io5'
 import Tooltip from './Tooltip'
 
 const WorkCard = ({ work }) => {
-    const { title, description, stackIcons, slug, thumbnail, webUrl, repoUrl } = work
+    const { title, description, stackIcons, thumbnail, webUrl, repoUrl } = work
 
     const { t } = useTranslation('common')
 
@@ -49,7 +49,7 @@ const WorkCard = ({ work }) => {
                                 <Tooltip tooltipText={t('work.go_repo')} orientation="top">
                                     <div className="text-gray-800 dark:text-sky-400">
                                         <a href={repoUrl} target="_blank" rel="noreferrer">
-                                            <BsGithub size={20} />
+                                            <BsGithub size={25} />
                                         </a>
                                     </div>
                                 </Tooltip>
@@ -60,7 +60,7 @@ const WorkCard = ({ work }) => {
                                 <Tooltip tooltipText={t('work.go_website')} orientation="top">
                                     <div className="text-gray-800 dark:text-sky-400">
                                         <a href={webUrl} target="_blank" rel="noreferrer">
-                                            <HiOutlineExternalLink size={23} />
+                                            <IoLinkOutline size={28} />
                                         </a>
                                     </div>
                                 </Tooltip>
@@ -72,14 +72,14 @@ const WorkCard = ({ work }) => {
                     <div className="flex items-center gap-5 mt-auto">
                         {stackIcons.map((icon) => {
                             return (
-                                <div className="" key={icon.fields.title}>
-                                    <Image
-                                        src={`https:${icon.fields.file.url}`}
-                                        width={40}
-                                        height={40}
-                                        alt={icon.fields.title}
-                                    />
-                                </div>
+                                <Image
+                                    src={`https:${icon.fields.file.url}`}
+                                    width={40}
+                                    height={40}
+                                    alt={icon.fields.title}
+                                    title={icon.fields.title}
+                                    key={icon.fields.title}
+                                />
                             )
                         })}
                     </div>

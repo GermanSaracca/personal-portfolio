@@ -13,12 +13,12 @@ export default function LanguageSelector() {
     return (
         <button
             className="flex items-center gap-1 text-2xl transition duration-200 ease-in-out dark:hover:text-sky-400 hover:text-sky-600 xl:text-3xl"
-            aria-label={`${activeLocale === 'en' ? 'Cambiar a español' : 'Change to english'}`}
             onClick={changeLocale}
             title={`${activeLocale === 'en' ? 'Cambiar a español' : 'Change to english'}`}
         >
             <MdLanguage size="1em" />
             <span className="text-sm sm:text-base xl:text-lg">{activeLocale === 'en' ? 'EN' : 'ES'}</span>
+            <span className="sr-only">{activeLocale === 'en' ? 'Cambiar a español' : 'Change to english'}</span>
         </button>
     )
 }

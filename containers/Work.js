@@ -17,8 +17,8 @@ const Work = ({ work }) => {
     }
 
     const listCardVariants = {
-        visible: { opacity: 1, x: 0, transition: { type: 'spring', bounce: 0.5, duration: 2 } },
-        hidden: { opacity: 0, x: -100 },
+        visible: { opacity: 1, x: 0, y: 0, transition: { type: 'spring', bounce: 0.5, duration: 2 } },
+        hidden: { opacity: 0, x: 70, y: 100 },
     }
 
     return (
