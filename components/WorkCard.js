@@ -17,7 +17,7 @@ const WorkCard = ({ work }) => {
             >
                 <div className="flex flex-col p-4 h-full">
                     {/* Title */}
-                    <h3 className="text-3xl font-semibold mb-6 pb-2 truncate relative after:bg-sky-600 dark:after:bg-sky-400 after:w-full after:h-[3px] after:absolute after:bottom-0 after:left-0">
+                    <h3 className="text-3xl font-semibold mb-6 pb-2 truncate relative after:bg-sky-500 dark:after:bg-sky-400 after:w-full after:h-[3px] after:absolute after:bottom-0 after:left-0">
                         {title}
                     </h3>
 

@@ -1,5 +1,6 @@
 import GoUpButton from '../GoUpButton'
 import Header from './header'
+import IntroAnimation from '../IntroAnimation'
 
 const Layout = ({ children }) => {
     return (
@@ -7,7 +8,11 @@ const Layout = ({ children }) => {
             <Header />
 
             <main className="text-gray-800 xl:m-0 dark:text-gray-200 overflow-x-hidden">{children}</main>
+
             <GoUpButton />
+
+            {/* INTRO ANIMATION - ONLY DESKTOP */}
+            <IntroAnimation />
         </div>
     )
 }

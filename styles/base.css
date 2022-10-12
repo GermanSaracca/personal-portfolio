@@ -21,6 +21,7 @@
     }
     body {
         scrollbar-color: rgb(56 189 248) rgb(7 89 133);
+        overflow-x: hidden;
     }
     button:focus-visible,
     a:focus-visible {

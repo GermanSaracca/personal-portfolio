@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Hero from '../containers/Hero'
 import Work from '../containers/Work'
 import Contact from '../containers/Contact'
+import Skills from '../containers/Skills'
 //Components
 // import ContactForm from '../components/ContactForm'
 // import { HiOutlineMail } from 'react-icons/hi'
@@ -26,10 +27,11 @@ const Home = ({ hero, works }) => {
             {/* Works */}
             {worksFormatted.length && <Work work={worksFormatted} />}
 
+            {/* Skills */}
+            <Skills />
+
             {/* Contact */}
             <Contact />
-
-            {/* <section className="h-screen border-2 border-yellow-600" id="skills"></section> */}
         </>
     )
 }

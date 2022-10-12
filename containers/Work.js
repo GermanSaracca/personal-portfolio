@@ -22,9 +22,9 @@ const Work = ({ work }) => {
     }
 
     return (
-        <section className="min-h-screen section-padding pt-12" id="work">
+        <section className="min-h-screen section-padding py-28" id="work">
             {/* Title */}
-            <div className="mb-16">
+            <div className="mb-24">
                 <SectionTitle word={t('work.title')} />
             </div>
 

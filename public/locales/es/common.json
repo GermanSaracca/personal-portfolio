@@ -11,5 +11,19 @@
     "header": {
         "switch_to_dark_mode": "Cambiar a modo oscuro",
         "switch_to_light_mode": "Cambiar a modo claro"
+    },
+    "contact": {
+        "title": "Contacto",
+        "send_message": "Mándame un mensaje",
+        "name_label": "Nombre",
+        "email_label": "Email",
+        "message_label": "Mensaje",
+        "linkedin_profile": "Perfil de LinkedIn",
+        "send": "Enviar",
+        "message_sent": "Su mensaje ha sido enviado, me pondre en contacto a la brevedad.",
+        "message_failed": "Ha ocurrido un error, intente nuevamente."
+    },
+    "global": {
+        "copied": "Copiado"
     }
 }

@@ -36,7 +36,7 @@ const Hero = ({ fields }) => {
                 {/* Subtitle */}
                 <motion.h2
                     variants={fromBottom}
-                    className="mb-8 text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-sky-600 dark:text-sky-400"
+                    className="mb-8 text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-sky-500 dark:text-sky-400"
                 >
                     {fields.subtitle}
                 </motion.h2>

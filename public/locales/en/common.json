@@ -11,5 +11,19 @@
     "header": {
         "switch_to_dark_mode": "Swith to dark mode",
         "switch_to_light_mode": "Switch to light mode"
+    },
+    "contact": {
+        "title": "Contact",
+        "send_message": "Send me a message",
+        "name_label": "Name",
+        "email_label": "Email",
+        "message_label": "Message",
+        "linkedin_profile": "LinkedIn Profile",
+        "send": "Send",
+        "message_sent": "Your message has been sent, I will contact you as soon as possible.",
+        "message_failed": "An error has occurred, try again."
+    },
+    "global": {
+        "copied": "Copied"
     }
 }

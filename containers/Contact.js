@@ -1,17 +1,79 @@
+import { useTranslation } from 'next-i18next'
 import { HiOutlineMail } from 'react-icons/hi'
 import ContactForm from '../components/ContactForm'
+import SectionTitle from '../components/SectionTitle'
+import { BsWhatsapp } from 'react-icons/bs'
+import { GrLinkedin } from 'react-icons/gr'
+import { SiGmail } from 'react-icons/si'
+import CopyToClipboard from '../components/CopyToClipboard'
+import AnimatedShape from '../components/AnimatedShape'
 
 const Contact = () => {
-    return (
-        <section className="flex items-center min-h-screen section-padding border-2 border-green-600" id="contact">
-            <section className="w-full py-4 mt-8 sm:max-w-sm border-red-300 border-2 ml-auto">
-                <h3 className="flex items-center mb-4 ">
-                    Enviame un mensaje
-                    <HiOutlineMail className="ml-2 text-sky-600 dark:text-sky-400" size={'1.10em'} />
-                </h3>
+    const { t } = useTranslation('common')
 
-                <ContactForm />
+    return (
+        <section className="min-h-screen section-padding py-28 relative overflow-hidden" id="contact">
+            {/* Title */}
+            <div className="mb-16">
+                <SectionTitle word={t('contact.title')} />
+            </div>
+            {/* Contacts */}
+            <section className="flex flex-col gap-8 lg:flex-row lg:gap-16">
+                {/* Email Form */}
+                <div className="w-full py-4 lg:w-1/2 lg:max-w-xl">
+                    <h3 className="flex items-center mb-4 text-xl lg:text-3xl gap-4">
+                        {t('contact.send_message')}
+                        <HiOutlineMail className="ml-2 text-sky-600 dark:text-sky-400" size={'1.10em'} />
+                    </h3>
+
+                    <ContactForm />
+                </div>
+
+                {/* Email - Whatsapp - Linkedin  */}
+                <address className="flex flex-col gap-4 lg:pt-8 lg:gap-8">
+                    {/* Whatsapp */}
+                    <div className="flex items-center gap-4">
+                        <a
+                            className="flex items-center gap-4 hover:underline"
+                            href="https://wa.me/542494209572"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BsWhatsapp size={25} className="text-sky-400" />
+                            <p className="mr-2 text-lg font-semibold not-italic">2494209572</p>
+                        </a>
+
+                        <CopyToClipboard text="2494209572" />
+                    </div>
+                    {/* Email */}
+                    <div className="flex items-center gap-4">
+                        <a
+                            className="flex items-center gap-4 hover:underline"
+                            href="mailto:gersaracca@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <SiGmail size={25} className="text-sky-400" />
+                            <p className="mr-2 text-lg font-semibold not-italic">gersaracca@gmail.com</p>
+                        </a>
+                        <CopyToClipboard text="gersaracca@gmail.com" />
+                    </div>
+                    {/* Linkedin */}
+
+                    <a
+                        className="flex items-center gap-4 hover:underline"
+                        href="https://www.linkedin.com/in/german-saracca/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <GrLinkedin size={25} className="text-sky-400" />
+                        <p className="text-lg font-semibold not-italic">{t('contact.linkedin_profile')}</p>
+                    </a>
+                </address>
             </section>
+            <div className="hidden lg:block absolute top-[75vh] right-[15vw]">
+                <AnimatedShape />
+            </div>
         </section>
     )
 }

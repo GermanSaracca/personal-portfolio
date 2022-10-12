@@ -84,13 +84,13 @@ const SectionTitle = ({ word }) => {
                     variants={{
                         visible: { width: '100%', transition: { duration: 0.75, delay: 1 } },
                     }}
-                    className="h-[2px] lg:h-1 bg-sky-600 dark:bg-sky-400 absolute top-0 left-0"
+                    className="h-[2px] lg:h-1 bg-sky-500 dark:bg-sky-400 absolute top-0 left-0"
                 ></motion.div>
                 <motion.div
                     variants={{
                         visible: { height: '100%', transition: { duration: 0.75 } },
                     }}
-                    className="w-[2px] lg:w-1 bg-sky-600  dark:bg-sky-400 absolute bottom-0 left-0"
+                    className="w-[2px] lg:w-1 bg-sky-500  dark:bg-sky-400 absolute bottom-0 left-0"
                 ></motion.div>
             </motion.div>
         </motion.div>
