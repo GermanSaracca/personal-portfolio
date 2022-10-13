@@ -82,7 +82,7 @@ const Hero = ({ heroFields }: Props) => {
                     </motion.div>
                 </motion.div>
             </motion.div>
-            <div className="absolute bottom-[10%] right-[10%]">
+            <div className="hidden sm:block absolute bottom-[10%] right-[10%]">
                 <AnimatedShape />
             </div>
         </section>

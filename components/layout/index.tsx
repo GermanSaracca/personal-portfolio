@@ -1,5 +1,6 @@
 import React from 'react'
 import GoUpButton from '../GoUpButton'
+import Footer from './footer'
 import Header from './header'
 
 interface Props {
@@ -15,6 +16,7 @@ const Layout = ({ children }: Props) => {
                 {children}
             </main>
             <GoUpButton />
+            <Footer />
         </div>
     )
 }
