@@ -1,7 +1,7 @@
 const NotFound = () => {
     return (
-        <div>
-            <h1>Not Found 404 page</h1>
+        <div className="min-h-screen grid place-content-center">
+            <h1 className="text-base lg:text-4xl font-semibold text-sky-400">Page not found 😵‍💫</h1>
         </div>
     )
 }

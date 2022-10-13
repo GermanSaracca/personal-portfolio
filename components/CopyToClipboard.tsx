@@ -32,6 +32,7 @@ const CopyToClipboard = ({ text }: Props) => {
             <button
                 className="grid place-items-center mr-3 text-gray-800 dark:text-gray-200 hover:text-sky-400 dark:hover:text-sky-400"
                 onClick={handleCopy}
+                aria-label={t('global.copy_content')}
             >
                 <MdOutlineContentCopy />
             </button>

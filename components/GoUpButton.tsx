@@ -1,10 +1,12 @@
 import { useScroll } from 'framer-motion'
+import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
 import { BsArrowUp } from 'react-icons/bs'
 
 const GoUpButton = () => {
     const { scrollYProgress } = useScroll()
     const [showButton, setShowButton] = useState(false)
+    const { t } = useTranslation('common')
 
     useEffect(() => {
         return scrollYProgress.onChange((latest) => {
@@ -28,6 +30,7 @@ const GoUpButton = () => {
             transition ease-in-out"
             style={{ opacity: showButton ? 1 : 0 }}
             onClick={goUp}
+            aria-label={t('global.scroll_up')}
         >
             <BsArrowUp size={30} />
         </button>
