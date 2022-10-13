@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion'
 
-const SectionTitle = ({ word }) => {
+interface Props {
+    word: string
+}
+
+const SectionTitle = ({ word }: Props) => {
     const wordsArray = word.split('')
 
     const list = {
@@ -32,7 +36,7 @@ const SectionTitle = ({ word }) => {
 
     const variants = [variant1, variant2, variant3, variant4]
 
-    let animationsArray = []
+    const animationsArray: any[] = []
 
     for (let i = 0; i < wordsArray.length; i++) {
         if (animationsArray.length === wordsArray.length) {

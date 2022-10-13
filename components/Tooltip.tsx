@@ -1,8 +1,13 @@
-import { useRef } from 'react'
-import propTypes from 'prop-types'
+import React, { useRef } from 'react'
 
-const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
-    const tipRef = useRef(null)
+interface Props {
+    children: React.ReactNode
+    tooltipText: string
+    orientation?: 'top' | 'left' | 'right' | 'bottom'
+}
+
+const Tooltip = ({ children, tooltipText, orientation = 'right' }: Props) => {
+    const tipRef = useRef<HTMLDivElement>(null)
 
     const orientations = {
         right: 'right',
@@ -12,14 +17,18 @@ const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
     }
 
     function handleMouseEnter() {
-        tipRef.current.style.opacity = 1
+        if (tipRef.current) {
+            tipRef.current.style.opacity = '1'
+        }
     }
 
     function handleMouseLeave() {
-        tipRef.current.style.opacity = 0
+        if (tipRef.current) {
+            tipRef.current.style.opacity = '0'
+        }
     }
 
-    const setContainerPosition = (orientation) => {
+    const setContainerPosition = (orientation: Props['orientation']) => {
         let classnames
 
         switch (orientation) {
@@ -43,7 +52,7 @@ const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
         return classnames
     }
 
-    const setPointerPosition = (orientation) => {
+    const setPointerPosition = (orientation: Props['orientation']) => {
         let classnames
 
         switch (orientation) {
@@ -86,8 +95,4 @@ const Tooltip = ({ children, tooltipText, orientation = 'right' }) => {
     )
 }
 
-Tooltip.propTypes = {
-    orientation: propTypes.oneOf(['top', 'left', 'right', 'bottom']),
-    tooltipText: propTypes.string.isRequired,
-}
 export default Tooltip

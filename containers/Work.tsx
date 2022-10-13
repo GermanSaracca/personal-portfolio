@@ -2,8 +2,13 @@ import { useTranslation } from 'next-i18next'
 import SectionTitle from '../components/SectionTitle'
 import WorkCard from '../components/WorkCard'
 import { motion } from 'framer-motion'
+import { WorkFields } from '../types'
 
-const Work = ({ work }) => {
+interface Props {
+    work: WorkFields[]
+}
+
+const Work = ({ work }: Props) => {
     const { t } = useTranslation('common')
 
     const listVariants = {

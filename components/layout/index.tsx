@@ -1,8 +1,13 @@
+import React from 'react'
 import GoUpButton from '../GoUpButton'
 import Header from './header'
 import IntroAnimation from '../IntroAnimation'
 
-const Layout = ({ children }) => {
+interface Props {
+    children: React.ReactNode
+}
+
+const Layout = ({ children }: Props) => {
     return (
         <div className="flex flex-col bg-gray-200 dark:bg-gray-800 min-h-screen">
             <Header />

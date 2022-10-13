@@ -1,4 +1,4 @@
-//components
+// components
 import { useEffect, useState } from 'react'
 import { motion, useScroll } from 'framer-motion'
 import ColorSelector from '../ColorSelector'
@@ -7,6 +7,7 @@ import LanguageSelector from '../LanguageSelector'
 const Header = () => {
     const { scrollYProgress } = useScroll()
     const [progressBarWidth, setProgressBarWidth] = useState(0)
+
     useEffect(() => {
         return scrollYProgress.onChange((latest) => {
             setProgressBarWidth(latest * 100)
@@ -36,5 +37,5 @@ const Header = () => {
         </header>
     )
 }
-//TODO: THANKS Howdy from coolors.co [https://fabrizio.io/, https://coolors.co/]
+
 export default Header

@@ -1,11 +1,12 @@
 import Layout from '../components/layout'
+import type { AppProps } from 'next/app'
 import { ColorThemeProvider } from '../context/ThemeProvider'
 import { appWithTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter()
 
     return (

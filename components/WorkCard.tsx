@@ -2,9 +2,14 @@ import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import { BsGithub } from 'react-icons/bs'
 import { IoLinkOutline } from 'react-icons/io5'
+import { WorkFields } from '../types'
 import Tooltip from './Tooltip'
 
-const WorkCard = ({ work }) => {
+interface Props {
+    work: WorkFields
+}
+
+const WorkCard = ({ work }: Props) => {
     const { title, description, stackIcons, thumbnail, webUrl, repoUrl } = work
 
     const { t } = useTranslation('common')
@@ -37,8 +42,6 @@ const WorkCard = ({ work }) => {
                             objectFit="cover"
                             width={'100%'}
                             height={60}
-                            // placeholder="blur"
-                            // blurDataURL={`https:${thumbnail.fields.file.url}`}
                         />
                     </div>
                     {/* LINKS CODE - WEB */}

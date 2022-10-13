@@ -1,4 +1,4 @@
-import { useRef, useState, useContext } from 'react'
+import { useRef, useState, FormEvent } from 'react'
 import emailjs from '@emailjs/browser'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useTranslation } from 'next-i18next'
@@ -6,14 +6,14 @@ import { useTranslation } from 'next-i18next'
 const ContactForm = () => {
     const { t } = useTranslation('common')
 
-    const form = useRef()
+    const form = useRef<HTMLFormElement>(null)
 
     const [allowSend, setAllowSend] = useState(false)
     const [messageSent, setMessageSent] = useState(false)
     const [messageError, setMessageError] = useState(false)
     const [sendingMessage, setSendingMessage] = useState(false)
 
-    const sendEmail = (e) => {
+    const sendEmail = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         if (allowSend) {
@@ -23,19 +23,21 @@ const ContactForm = () => {
 
             emailjs
                 .sendForm(
-                    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-                    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-                    form.current,
+                    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+                    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+                    form.current as HTMLFormElement,
                     process.env.NEXT_PUBLIC_EMAILJS_USER_ID
                 )
                 .then(
                     (result) => {
                         if (result.text === 'OK') {
                             setMessageSent(true)
-                            form.current.reset()
+
+                            form.current?.reset()
                         }
                     },
                     (error) => {
+                        console.error(error)
                         setMessageError(true)
                     }
                 )
@@ -43,7 +45,7 @@ const ContactForm = () => {
         }
     }
 
-    const onChangeReCAPTCHA = (value) => {
+    const onChangeReCAPTCHA = (value: any) => {
         if (value) {
             setAllowSend(true)
         } else {
@@ -95,7 +97,7 @@ const ContactForm = () => {
             <div className="mb-1">
                 <ReCAPTCHA
                     size="normal"
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
                     onChange={onChangeReCAPTCHA}
                 />
             </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 import { CgMouse } from 'react-icons/cg'
 import { HiChevronDown } from 'react-icons/hi'
+import { HeroFields } from '../types'
 
 const list = {
     visible: {
@@ -22,7 +23,11 @@ const fromBottom = {
     hidden: { opacity: 0, y: 50 },
 }
 
-const Hero = ({ fields }) => {
+interface Props {
+    heroFields: HeroFields
+}
+
+const Hero = ({ heroFields }: Props) => {
     const { t } = useTranslation('common')
 
     return (
@@ -30,7 +35,7 @@ const Hero = ({ fields }) => {
             <motion.div initial="hidden" whileInView="visible" variants={list} viewport={{ once: true }}>
                 {/* Title */}
                 <motion.h1 variants={fromLeft} className="mb-6 text-3xl lg:text-4xl 2xl:text-5xl font-semibold">
-                    {t('hero.greeting_prepend')} {fields.title}
+                    {t('hero.greeting_prepend')} {heroFields.title}
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -38,17 +43,17 @@ const Hero = ({ fields }) => {
                     variants={fromBottom}
                     className="mb-8 text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-sky-500 dark:text-sky-400"
                 >
-                    {fields.subtitle}
+                    {heroFields.subtitle}
                 </motion.h2>
 
                 {/* Description */}
                 <motion.p variants={fromBottom} className="mb-8 lg:max-w-3xl 2xl:max-w-4xl">
-                    {fields.description}
+                    {heroFields.description}
                 </motion.p>
 
                 {/* PDF */}
                 <motion.div variants={fromBottom} className="btn-wrapper">
-                    <a className="btn" href={fields.curriculumPdf.fields.file.url} target="_blank" rel="noreferrer">
+                    <a className="btn" href={heroFields.curriculumPdf.fields.file.url} target="_blank" rel="noreferrer">
                         {t('hero.download_pdf')}
                     </a>
                 </motion.div>
