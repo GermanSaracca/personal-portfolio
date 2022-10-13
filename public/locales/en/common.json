@@ -29,5 +29,8 @@
         "copied": "Copied",
         "copy_content": "Copy content",
         "scroll_up": "Scroll to top"
+    },
+    "footer": {
+        "made_with": "I built this website with"
     }
 }
