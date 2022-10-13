@@ -2,14 +2,15 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 import { CgMouse } from 'react-icons/cg'
 import { HiChevronDown } from 'react-icons/hi'
+import AnimatedShape from '../components/AnimatedShape'
 import { HeroFields } from '../types'
 
 const list = {
     visible: {
         transition: {
             when: 'afterChildren',
-            delayChildren: 1.5,
-            staggerChildren: 0.6,
+            delayChildren: 0.5,
+            staggerChildren: 0.4,
         },
     },
 }
@@ -31,7 +32,7 @@ const Hero = ({ heroFields }: Props) => {
     const { t } = useTranslation('common')
 
     return (
-        <section className="min-h-screen flex flex-col justify-center relative section-padding" id="hero-intro">
+        <section className="min-h-screen flex flex-col justify-center section-padding" id="hero-intro">
             <motion.div initial="hidden" whileInView="visible" variants={list} viewport={{ once: true }}>
                 {/* Title */}
                 <motion.h1 variants={fromLeft} className="mb-6 text-3xl lg:text-4xl 2xl:text-5xl font-semibold">
@@ -57,7 +58,7 @@ const Hero = ({ heroFields }: Props) => {
                         {t('hero.download_pdf')}
                     </a>
                 </motion.div>
-                {/* Scroll Down button */}
+                {/* Scroll Down animation */}
                 <motion.div
                     variants={{
                         visible: { opacity: 1 },
@@ -81,6 +82,9 @@ const Hero = ({ heroFields }: Props) => {
                     </motion.div>
                 </motion.div>
             </motion.div>
+            <div className="absolute bottom-[10%] right-[10%]">
+                <AnimatedShape />
+            </div>
         </section>
     )
 }

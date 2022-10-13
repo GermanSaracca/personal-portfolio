@@ -38,6 +38,7 @@ const Contact = () => {
                             href="https://wa.me/542494209572"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Send whatsapp to 542494209572"
                         >
                             <BsWhatsapp size={25} className="text-sky-400" />
                             <p className="mr-2 text-lg font-semibold not-italic">2494209572</p>
@@ -52,6 +53,7 @@ const Contact = () => {
                             href="mailto:gersaracca@gmail.com"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Send email to gersaracca@gmail.com"
                         >
                             <SiGmail size={25} className="text-sky-400" />
                             <p className="mr-2 text-lg font-semibold not-italic">gersaracca@gmail.com</p>
@@ -65,6 +67,7 @@ const Contact = () => {
                         href="https://www.linkedin.com/in/german-saracca/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Open linkedin profile"
                     >
                         <GrLinkedin size={25} className="text-sky-400" />
                         <p className="text-lg font-semibold not-italic">{t('contact.linkedin_profile')}</p>

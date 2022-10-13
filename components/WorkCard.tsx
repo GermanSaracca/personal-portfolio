@@ -51,7 +51,12 @@ const WorkCard = ({ work }: Props) => {
                             {repoUrl && (
                                 <Tooltip tooltipText={t('work.go_repo')} orientation="top">
                                     <div className="text-gray-800 dark:text-sky-400">
-                                        <a href={repoUrl} target="_blank" rel="noreferrer">
+                                        <a
+                                            href={repoUrl}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            aria-label={t('work.go_repo')}
+                                        >
                                             <BsGithub size={25} />
                                         </a>
                                     </div>
@@ -62,7 +67,12 @@ const WorkCard = ({ work }: Props) => {
                             {webUrl && (
                                 <Tooltip tooltipText={t('work.go_website')} orientation="top">
                                     <div className="text-gray-800 dark:text-sky-400">
-                                        <a href={webUrl} target="_blank" rel="noreferrer">
+                                        <a
+                                            href={webUrl}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            aria-label={t('work.go_website')}
+                                        >
                                             <IoLinkOutline size={28} />
                                         </a>
                                     </div>

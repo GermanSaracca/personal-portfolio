@@ -24,6 +24,10 @@
         "message_failed": "An error has occurred, try again."
     },
     "global": {
-        "copied": "Copied"
+        "change_to_spanish": "Cambiar a español",
+        "change_to_english": "Change to english",
+        "copied": "Copied",
+        "copy_content": "Copy content",
+        "scroll_up": "Scroll to top"
     }
 }
