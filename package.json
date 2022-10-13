@@ -11,6 +11,7 @@
         "@contentful/rich-text-react-renderer": "^15.6.2",
         "@emailjs/browser": "^3.4.0",
         "contentful": "^9.1.4",
+        "eslint-config-prettier": "^8.5.0",
         "framer-motion": "^7.5.1",
         "next": "^12.3.1",
         "next-i18next": "^12.1.0",
@@ -21,10 +22,20 @@
         "react-icons": "^4.3.1"
     },
     "devDependencies": {
+        "@types/node": "18.8.5",
+        "@types/react-google-recaptcha": "^2.1.5",
+        "@typescript-eslint/eslint-plugin": "^5.40.0",
+        "@typescript-eslint/parser": "^5.40.0",
         "autoprefixer": "^10.4.2",
-        "eslint": "7",
+        "eslint": "^8.25.0",
         "eslint-config-next": "12.0.4",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-n": "^15.3.0",
+        "eslint-plugin-promise": "^6.1.0",
+        "eslint-plugin-react": "^7.31.10",
         "postcss": "^8.4.8",
-        "tailwindcss": "^3.0.23"
+        "tailwindcss": "^3.0.23",
+        "typescript": "4.8.4"
     }
 }

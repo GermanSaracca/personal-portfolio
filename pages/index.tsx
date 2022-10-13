@@ -1,27 +1,35 @@
-//** Home Page */
+// Home Page
 import client from '../configs/contentfulClient'
 import LoadingPage from '../components/LoadingPage'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-//Containers
+// Containers
 import Hero from '../containers/Hero'
 import Work from '../containers/Work'
 import Contact from '../containers/Contact'
+import { GetStaticProps } from 'next'
+import { IHero, IWorks, WorkFields } from '../types'
 
-const Home = ({ hero, works }) => {
+interface Props {
+    hero: IHero[]
+    works: IWorks[]
+}
+
+const Home = ({ hero, works }: Props) => {
     if (!hero) {
         return <LoadingPage />
     }
 
     const { fields: heroFields } = hero[0]
 
-    const worksFormatted = works && works.length && works.map((p) => p.fields).sort((a, b) => a.order - b.order)
+    const worksFormatted: WorkFields[] | 0 =
+        works && works.length && works.map((p) => p.fields).sort((a, b) => a.order - b.order)
 
     return (
         <>
-            <Hero fields={heroFields} />
+            <Hero heroFields={heroFields} />
 
             {/* Works */}
-            {worksFormatted.length && <Work work={worksFormatted} />}
+            {works.length && <Work work={worksFormatted as WorkFields[]} />}
 
             {/* Contact */}
             <Contact />
@@ -29,7 +37,7 @@ const Home = ({ hero, works }) => {
     )
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async (context) => {
     const { locale } = context
 
     const contentLocale = locale === 'es' ? 'es-AR' : 'en-US'
@@ -49,7 +57,7 @@ export async function getStaticProps(context) {
         props: {
             hero: hero.items,
             works: projects.items,
-            ...(await serverSideTranslations(locale, ['common'])),
+            ...(await serverSideTranslations(locale as string, ['common'])),
         },
         revalidate: 10,
     }

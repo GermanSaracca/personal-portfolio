@@ -4,7 +4,11 @@ import { useTranslation } from 'next-i18next'
 import { MdOutlineContentCopy } from 'react-icons/md'
 import propTypes from 'prop-types'
 
-const CopyToClipboard = ({ text }) => {
+interface Props {
+    text: string
+}
+
+const CopyToClipboard = ({ text }: Props) => {
     const [showTextCopied, setShowTextCopied] = useState(false)
     const { t } = useTranslation('common')
 

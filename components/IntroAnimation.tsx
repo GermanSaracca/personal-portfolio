@@ -18,7 +18,6 @@ const IntroAnimation = () => {
                         placeItems: 'center',
                     }}
                     animate={{
-                        position: 'static',
                         width: 'fit-content',
                         height: 'fit-content',
                         position: 'absolute',

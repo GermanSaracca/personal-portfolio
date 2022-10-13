@@ -5,9 +5,9 @@ export default function LanguageSelector() {
     const router = useRouter()
     const { locale: activeLocale, pathname, query } = router
 
-    const changeLocale = (e) => {
+    const changeLocale = () => {
         const locale = activeLocale === 'en' ? 'es' : 'en'
-        router.push({ pathname, query }, null, { locale })
+        router.push({ pathname, query }, undefined, { locale })
     }
 
     return (

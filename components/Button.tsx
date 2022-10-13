@@ -1,4 +1,8 @@
-const Button = ({ text }) => {
+interface Props {
+    text: string
+}
+
+const Button = ({ text }: Props) => {
     return (
         <div className="isolate">
             <button
