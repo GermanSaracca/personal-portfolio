@@ -7,7 +7,7 @@ const list = {
     visible: {
         transition: {
             when: 'afterChildren',
-            delayChildren: 0.5,
+            delayChildren: 1.5,
             staggerChildren: 0.6,
         },
     },

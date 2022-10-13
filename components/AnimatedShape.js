@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const AnimatedShape = () => {
     return (
         <motion.div
-            className="w-24 h-24 2xl:w-32 2xl:h-32 bg-sky-400"
+            className="w-24 h-24 bg-sky-400"
             animate={{
                 scale: [1, 2, 2, 1, 1],
                 rotate: [0, 0, 180, 180, 0],

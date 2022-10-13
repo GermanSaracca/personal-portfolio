@@ -54,39 +54,39 @@ const ContactForm = () => {
     return (
         <form ref={form} onSubmit={sendEmail}>
             <div className="w-full py-2">
-                <label htmlFor="name" className="block mb-1 text-base font-medium text-sky-600 dark:text-sky-400">
+                <label htmlFor="name" className="block mb-1 text-base font-medium text-gray-800 dark:text-sky-400">
                     {t('contact.name_label')}
                 </label>
                 <input
                     id="name"
                     type="text"
                     name="user_name"
-                    className="w-full h-8 pl-2 text-gray-800 shadow-md dark:outline-sky-400 outline-sky-600 caret-sky-400"
+                    className="w-full h-10 pl-2 text-gray-800 shadow-md border-2 border-sky-400 dark:outline-sky-400 outline-sky-600 caret-sky-400"
                     required
                 />
             </div>
 
             <div className="w-full py-2">
-                <label htmlFor="email" className="block mb-1 text-base font-medium text-sky-600 dark:text-sky-400 ">
+                <label htmlFor="email" className="block mb-1 text-base font-medium text-gray-800 dark:text-sky-400 ">
                     {t('contact.email_label')}
                 </label>
                 <input
                     type="email"
                     name="user_email"
                     id="email"
-                    className="w-full h-8 pl-2 text-gray-800 shadow-md dark:outline-sky-400 outline-sky-600 caret-sky-400"
+                    className="w-full h-10 pl-2 text-gray-800 shadow-md border-2 border-sky-400 dark:outline-sky-400 outline-sky-600 caret-sky-400"
                     required
                 />
             </div>
 
             <div className="w-full py-2 mb-1">
-                <label htmlFor="message" className="block mb-1 text-base font-medium text-sky-600 dark:text-sky-400 ">
+                <label htmlFor="message" className="block mb-1 text-base font-medium text-gray-800 dark:text-sky-400 ">
                     {t('contact.message_label')}
                 </label>
                 <textarea
                     name="message"
                     id="message"
-                    className="w-full pl-2 text-gray-800 shadow-md dark:outline-sky-400 outline-sky-600 caret-sky-400"
+                    className="w-full pl-2 text-gray-800 shadow-md border-2 border-sky-400 dark:outline-sky-400 outline-sky-600 caret-sky-400"
                     rows={5}
                     required
                     minLength={10}
