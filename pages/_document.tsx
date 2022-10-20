@@ -13,6 +13,7 @@ class MyDocument extends Document {
                     />
                     <meta name="author" content="Germán Saracca" />
                     <meta name="description" content="Germán Saracca portfolio" />
+                    <meta name="google-site-verification" content={process.env.GOOGLE_SITE_VERIFICATION_ID} />
                 </Head>
                 <body>
                     <Main />
